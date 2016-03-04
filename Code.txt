@@ -1,0 +1,91 @@
+//
+//  MapViewController.swift
+//  HiddenGems
+//
+//  Created by Melissa Rojas on 2/23/16.
+//  Copyright © 2016 Melissa Rojas. All rights reserved.
+//
+
+
+// — LOCATION
+
+
+import UIKit
+import CoreLocation
+import AddressBook
+import MapKit
+
+class MapViewController: UIViewController {
+    
+    
+    @IBOutlet weak var myAddress: UITextView!
+    @IBOutlet weak var LatitudeLongitude: UILabel!
+    
+    //var coordinates: CLLocationCoordinate2D!
+    
+    
+    
+    @IBAction func buttonGeocode(sender: UIButton) {
+        
+        let geocoder = CLGeocoder()
+        
+        
+        geocoder.geocodeAddressString(myAddress.text, completionHandler: { (placemarks:[CLPlacemark]?, error: NSError?) -> Void in
+            if (error != nil){
+                NSLog("Geocode failed with error: %@", error!)
+                return
+            }
+            if ((placemarks != nil)&&(placemarks!.count > 0)){
+                let placemark:CLPlacemark = placemarks![0]
+                let location:CLLocation = placemark.location!
+                /*self.coordinates = placemark.location!.coordinate
+                self.LatitudeLongitude.text = String(format: "Latitude = %f, Longitude = %f", self.coordinates.latitude, self.coordinates.longitude)*/
+                let regionDistance:CLLocationDistance = 100
+                let coordinates = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+                let region = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+                let options = [MKLaunchOptionsMapCenterKey:NSValue(MKCoordinate: region.center), MKLaunchOptionsMapSpanKey: NSValue(MKCoordinateSpan: region.span)]
+                
+                let place = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+                let mapItem = MKMapItem(placemark: place)
+                mapItem.openInMapsWithLaunchOptions(options)
+                
+            }
+            
+            
+        
+        })
+        
+        
+      
+        
+   
+    }
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
