@@ -19,6 +19,7 @@
 		B7E2B35F1C7CE51A00A57833 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */; };
 		BA6FADA41C8FC2990053D9CB /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA6FADA31C8FC2990053D9CB /* background1.png */; };
 		BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */; };
+		BAC3F6FC1C988E920059DF41 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC3F6FB1C988E920059DF41 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BA6FADA31C8FC2990053D9CB /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = SOURCE_ROOT; };
 		BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		BAC3F6FB1C988E920059DF41 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */,
 				B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */,
 				BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */,
+				BAC3F6FB1C988E920059DF41 /* LoginVC.swift */,
 			);
 			path = HiddenGems;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */,
 				BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */,
+				BAC3F6FC1C988E920059DF41 /* LoginVC.swift in Sources */,
 				B7E2B3311C7CCC7700A57833 /* ViewController.swift in Sources */,
 				B7E2B35F1C7CE51A00A57833 /* MapViewController.swift in Sources */,
 				B7E2B32F1C7CCC7700A57833 /* AppDelegate.swift in Sources */,
