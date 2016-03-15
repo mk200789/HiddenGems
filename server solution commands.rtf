@@ -1,0 +1,462 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Bold;}
+{\colortbl;\red255\green255\blue255;\red59\green35\blue34;\red215\green211\blue183;\red113\green111\blue96;
+\red190\green186\blue161;\red50\green0\blue202;\red217\green11\blue0;\red20\green152\blue2;}
+\margl1440\margr1440\vieww13060\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural
+
+\f0\fs24 \cf2 \cb3 \CocoaLigature0 Last login: Thu Mar 10 20:30:56 on ttys000\
+Posso-MacBook-Pro:~ bposso00$ cd /Users/bposso00/Documents/GitHub/HiddenGems/\
+Posso-MacBook-Pro:HiddenGems bposso00$ ssh -i "hgbp.pem" ubuntu@ec2-54-152-30-2.compute-1.amazonaws.com\
+Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.13.0-74-generic x86_64)\
+\
+ * Documentation:  https://help.ubuntu.com/\
+\
+  System information as of Fri Mar 11 16:07:30 UTC 2016\
+\
+  System load:  0.0               Processes:           117\
+  Usage of /:   14.7% of 7.74GB   Users logged in:     0\
+  Memory usage: 21%               IP address for eth0: 172.31.63.5\
+  Swap usage:   0%\
+\
+  Graph this data and manage this system at:\
+    https://landscape.canonical.com/\
+\
+  Get cloud support with Ubuntu Advantage Cloud Guest:\
+    http://www.ubuntu.com/business/services/cloud\
+\
+63 packages can be updated.\
+31 updates are security updates.\
+\
+\
+Last login: Fri Mar 11 01:38:45 2016 from 128.228.53.80\
+ubuntu@ip-172-31-63-5:~$ mysql -u root -p\
+Enter password: \
+Welcome to the MySQL monitor.  Commands end with ; or \\g.\
+Your MySQL connection id is 238\
+Server version: 5.5.47-0ubuntu0.14.04.1 (Ubuntu)\
+\
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.\
+\
+Oracle is a registered trademark of Oracle Corporation and/or its\
+affiliates. Other names may be trademarks of their respective\
+owners.\
+\
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\
+\
+mysql> show tables\
+    -> ;\
+ERROR 1046 (3D000): No database selected\
+mysql> clear\
+mysql> show tables;\
+ERROR 1046 (3D000): No database selected\
+mysql> show HiddenGems;\
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'HiddenGems' at line 1\
+mysql> ls\
+    -> ;\
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ls' at line 1\
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> \
+mysql> use HiddenGems\
+Reading table information for completion of table and column names\
+You can turn off this feature to get a quicker startup with -A\
+\
+Database changed\
+mysql> show tables;\
++----------------------+\
+| Tables_in_HiddenGems |\
++----------------------+\
+| user                 |\
+| users                |\
++----------------------+\
+2 rows in set (0.00 sec)\
+\
+mysql> describe users;\
++---------------+---------------------+------+-----+---------+----------------+\
+| Field         | Type                | Null | Key | Default | Extra          |\
++---------------+---------------------+------+-----+---------+----------------+\
+| id            | bigint(20) unsigned | NO   | PRI | NULL    | auto_increment |\
+| user_email    | varchar(50)         | NO   |     | NULL    |                |\
+| user_password | varchar(32)         | NO   |     | NULL    |                |\
++---------------+---------------------+------+-----+---------+----------------+\
+3 rows in set (0.00 sec)\
+\
+mysql> select * from users;\
+Empty set (0.00 sec)\
+\
+mysql> Write failed: Broken pipe\
+Posso-MacBook-Pro:HiddenGems bposso00$ \
+\cf4 \cb5   [Restored]\cf2 \
+\cb3 Last login: Mon Mar 14 14:13:27 on console\
+Posso-MacBook-Pro:HiddenGems bposso00$ cd /Users/bposso00/Documents/GitHub/HiddenGems/\
+Posso-MacBook-Pro:HiddenGems bposso00$ ssh -i "hgbp.pem" ubuntu@ec2-54-152-30-2.compute-1.amazonaws.com\
+Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.13.0-74-generic x86_64)\
+\
+ * Documentation:  https://help.ubuntu.com/\
+\
+  System information as of Mon Mar 14 00:28:49 UTC 2016\
+\
+  System load:  0.0               Processes:           115\
+  Usage of /:   14.7% of 7.74GB   Users logged in:     0\
+  Memory usage: 18%               IP address for eth0: 172.31.63.5\
+  Swap usage:   0%\
+\
+  Graph this data and manage this system at:\
+    https://landscape.canonical.com/\
+\
+  Get cloud support with Ubuntu Advantage Cloud Guest:\
+    http://www.ubuntu.com/business/services/cloud\
+\
+63 packages can be updated.\
+31 updates are security updates.\
+\
+\
+Last login: Fri Mar 11 19:39:15 2016 from ool-addcf603.static.optonline.net\
+ubuntu@ip-172-31-63-5:~$ ls\
+ubuntu@ip-172-31-63-5:~$ clear\
+\
+ubuntu@ip-172-31-63-5:~$ mysql -u root -p\
+Enter password: \
+Welcome to the MySQL monitor.  Commands end with ; or \\g.\
+Your MySQL connection id is 281\
+Server version: 5.5.47-0ubuntu0.14.04.1 (Ubuntu)\
+\
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.\
+\
+Oracle is a registered trademark of Oracle Corporation and/or its\
+affiliates. Other names may be trademarks of their respective\
+owners.\
+\
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\
+\
+mysql> show tables\
+    -> ;\
+ERROR 1046 (3D000): No database selected\
+mysql> use HiddenGems;\
+Reading table information for completion of table and column names\
+You can turn off this feature to get a quicker startup with -A\
+\
+Database changed\
+mysql> show tables\
+    -> ;\
++----------------------+\
+| Tables_in_HiddenGems |\
++----------------------+\
+| user                 |\
+| users                |\
++----------------------+\
+2 rows in set (0.00 sec)\
+\
+mysql> exit\
+Bye\
+ubuntu@ip-172-31-63-5:~$ curl http://54.152.30.2/html/hg\
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\
+<html><head>\
+<title>404 Not Found</title>\
+</head><body>\
+<h1>Not Found</h1>\
+<p>The requested URL /html/hg was not found on this server.</p>\
+<hr>\
+<address>Apache/2.4.7 (Ubuntu) Server at 54.152.30.2 Port 80</address>\
+</body></html>\
+ubuntu@ip-172-31-63-5:~$ curl http://54.152.30.2/html/hg\
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\
+<html><head>\
+<title>404 Not Found</title>\
+</head><body>\
+<h1>Not Found</h1>\
+<p>The requested URL /html/hg was not found on this server.</p>\
+<hr>\
+<address>Apache/2.4.7 (Ubuntu) Server at 54.152.30.2 Port 80</address>\
+</body></html>\
+ubuntu@ip-172-31-63-5:~$ curl http://54.152.30.2/hg/\
+ubuntu@ip-172-31-63-5:~$ curl http://54.152.30.2/hg/idex.php\
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">\
+<html><head>\
+<title>404 Not Found</title>\
+</head><body>\
+<h1>Not Found</h1>\
+<p>The requested URL /hg/idex.php was not found on this server.</p>\
+<hr>\
+<address>Apache/2.4.7 (Ubuntu) Server at 54.152.30.2 Port 80</address>\
+</body></html>\
+ubuntu@ip-172-31-63-5:~$ less /var/lo\
+local/ lock/  log/   \
+ubuntu@ip-172-31-63-5:~$ less /var/lo\
+local/ lock/  log/   \
+ubuntu@ip-172-31-63-5:~$ less /var/log\
+/var/log is a directory\
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+\
+[1]+  Stopped                 less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ mysql\
+ERROR 1045 (28000): Access denied for user 'ubuntu'@'localhost' (using password: NO)\
+ubuntu@ip-172-31-63-5:~$ mysql -u root -p \
+Enter password: \
+Welcome to the MySQL monitor.  Commands end with ; or \\g.\
+Your MySQL connection id is 301\
+Server version: 5.5.47-0ubuntu0.14.04.1 (Ubuntu)\
+\
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.\
+\
+Oracle is a registered trademark of Oracle Corporation and/or its\
+affiliates. Other names may be trademarks of their respective\
+owners.\
+\
+Type 'help;' or '\\h' for help. Type '\\c' to clear the current input statement.\
+\
+mysql> use HiddenGems;\
+Reading table information for completion of table and column names\
+You can turn off this feature to get a quicker startup with -A\
+\
+Database changed\
+mysql> show tables;\
++----------------------+\
+| Tables_in_HiddenGems |\
++----------------------+\
+| user                 |\
+| users                |\
++----------------------+\
+2 rows in set (0.00 sec)\
+\
+mysql> SELECT username, email FROM user\
+    -> ;\
++----------+--------------------+\
+| username | email              |\
++----------+--------------------+\
+| bposso   | bposso00@gmail.com |\
+| bposso   | bposso00@gmail.com |\
++----------+--------------------+\
+2 rows in set (0.00 sec)\
+\
+mysql> quit\
+Bye\
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ \
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ \
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ \
+ubuntu@ip-172-31-63-5:~$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:~$ \
+ubuntu@ip-172-31-63-5:~$ cd /var/www/html/hg\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ ls -lah\
+total 20K\
+drwxrwxr-x 2 ubuntu ubuntu 4.0K Mar 14 19:02 
+\f1\b \cf6 .
+\f0\b0 \cf2 \
+drwxr-xr-x 7 ubuntu root   4.0K Mar 14 18:58 
+\f1\b \cf6 ..
+\f0\b0 \cf2 \
+-rw-r--r-- 1 ubuntu ubuntu 4.2K Mar 14 19:56 index.php\
+-rw-r--r-- 1 ubuntu ubuntu   20 Mar 14 19:04 info.php\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ touch .htaccess\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ vi. htaccess\
+No command 'vi.' found, but there are 19 similar ones\
+vi.: command not found\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ vi .htaccess\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ ls\
+index.php  info.php\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ ls -lah\
+total 24K\
+drwxrwxr-x 2 ubuntu ubuntu 4.0K Mar 14 20:04 
+\f1\b \cf6 .
+\f0\b0 \cf2 \
+drwxr-xr-x 7 ubuntu root   4.0K Mar 14 18:58 
+\f1\b \cf6 ..
+\f0\b0 \cf2 \
+-rw-rw-r-- 1 ubuntu ubuntu  529 Mar 14 20:04 .htaccess\
+-rw-r--r-- 1 ubuntu ubuntu 4.2K Mar 14 19:56 index.php\
+-rw-r--r-- 1 ubuntu ubuntu   20 Mar 14 19:04 info.php\
+\cf7 ubuntu@ip-172-31-63-5:/var/www/html/hg$ less /var/log/apache2/error.log\cf2 \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ \
+\cf7 ubuntu@ip-172-31-63-5:/var/www/html/hg$ ls -lah\cf2 \
+total 28K\
+drwxrwxr-x 2 ubuntu ubuntu 4.0K Mar 14 20:26 
+\f1\b \cf6 .
+\f0\b0 \cf2 \
+drwxr-xr-x 7 ubuntu root   4.0K Mar 14 18:58 
+\f1\b \cf6 ..
+\f0\b0 \cf2 \
+-rw-rw-r-- 1 ubuntu ubuntu  529 Mar 14 20:04 .htaccess\
+-rw-r--r-- 1 ubuntu ubuntu 2.3K Mar 14 20:34 index.php\
+-rw-r--r-- 1 ubuntu ubuntu   20 Mar 14 19:04 info.php\
+-rw-r--r-- 1 ubuntu ubuntu 4.5K Mar 14 20:26 Rest.php\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ cd ..\
+\cf7 ubuntu@ip-172-31-63-5:/var/www/html$ ls -lah\cf2 \
+total 52K\
+drwxr-xr-x 7 ubuntu root   4.0K Mar 14 18:58 
+\f1\b \cf6 .
+\f0\b0 \cf2 \
+drwxr-xr-x 3 root   root   4.0K Mar 10 22:11 
+\f1\b \cf6 ..
+\f0\b0 \cf2 \
+drwxrwxr-x 2 ubuntu ubuntu 4.0K Mar 11 23:56 
+\f1\b \cf6 database
+\f0\b0 \cf2 \
+drwxrwxr-x 2 ubuntu ubuntu 4.0K Mar 14 20:26 
+\f1\b \cf6 hg
+\f0\b0 \cf2 \
+-rw-r--r-- 1 root   root    12K Mar 10 22:11 index.html\
+-rwxr--r-- 1 ubuntu ubuntu 1.6K Mar 14 00:28 
+\f1\b \cf8 jsonlogin2.php
+\f0\b0 \cf2 \
+-rw-r--r-- 1 ubuntu ubuntu  204 Mar 14 00:28 jsonlogin.sql\
+-rwxr--r-- 1 ubuntu ubuntu 1.7K Mar 14 00:28 
+\f1\b \cf8 jsonsignup.php
+\f0\b0 \cf2 \
+drwxrwxr-x 3 ubuntu ubuntu 4.0K Mar 11 23:55 
+\f1\b \cf6 slim
+\f0\b0 \cf2 \
+drwxrwxr-x 2 ubuntu ubuntu 4.0K Mar 11 01:42 
+\f1\b \cf6 test1
+\f0\b0 \cf2 \
+drwxrwxr-x 2 ubuntu ubuntu 4.0K Mar 13 00:52 
+\f1\b \cf6 user-register
+\f0\b0 \cf2 \
+ubuntu@ip-172-31-63-5:/var/www/html$ cd hg\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ ls -la\
+total 28\
+drwxrwxr-x 2 ubuntu ubuntu 4096 Mar 14 20:26 
+\f1\b \cf6 .
+\f0\b0 \cf2 \
+drwxr-xr-x 7 ubuntu root   4096 Mar 14 18:58 
+\f1\b \cf6 ..
+\f0\b0 \cf2 \
+-rw-rw-r-- 1 ubuntu ubuntu  529 Mar 14 20:04 .htaccess\
+-rw-r--r-- 1 ubuntu ubuntu 2332 Mar 14 20:34 index.php\
+-rw-r--r-- 1 ubuntu ubuntu   20 Mar 14 19:04 info.php\
+-rw-r--r-- 1 ubuntu ubuntu 4538 Mar 14 20:26 Rest.php\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ ls \
+index.php  info.php  Rest.php\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less\
+Missing filename ("less --help" for help)\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less .htaccess \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less .htaccess \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ less .htaccess \
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ vi .htaccess\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ vi .htaccess\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ vi .htaccess\
+ubuntu@ip-172-31-63-5:/var/www/html/hg$ cd ..\
+\cf7 ubuntu@ip-172-31-63-5:/var/www/html$ touch .htaccess\
+ubuntu@ip-172-31-63-5:/var/www/html$ vi .htaccess\cf2 \
+ubuntu@ip-172-31-63-5:/var/www/html$ cd /etc/apache2/sites-available/\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ ls\
+000-default.conf  default-ssl.conf\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \cf7 vi 000-default.conf \cf2 \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \cf7 sudo vi 000-default.conf \cf2 \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \cf7 sudo a2ensite\cf2 \
+Your choices are: 000-default default-ssl\
+Which site(s) do you want to enable (wildcards ok)?\
+000-default \
+Site 000-default already enabled\
+\cf7 ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ sudo service apache2 restart\cf2 \
+ * Restarting web server apache2                                                                                                                                              [ OK ] \
+\cf7 ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ sudo a2enmod rewrite\cf2 \
+Enabling module rewrite.\
+To activate the new configuration, you need to run:\
+  service apache2 restart\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ sudo service apache2 restart\
+ * Restarting web server apache2                                                                                                                                              [ OK ] \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ less /var/log/apache2/error.log\
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ \
+ubuntu@ip-172-31-63-5:/etc/apache2/sites-available$ Write failed: Broken pipe\
+Posso-MacBook-Pro:HiddenGems bposso00$ clear\
+\
+Posso-MacBook-Pro:HiddenGems bposso00$ \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
