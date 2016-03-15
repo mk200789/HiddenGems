@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B74A5B6B1C869D5C00E46425 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = B74A5B6A1C869D5C00E46425 /* background1.png */; };
 		B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */; };
 		B7CCE86C1C7EBB5600255E66 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7CCE86B1C7EBB5600255E66 /* background.jpg */; };
 		B7E2B32F1C7CCC7700A57833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */; };
@@ -18,6 +17,8 @@
 		B7E2B3441C7CCC7700A57833 /* HiddenGemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B3431C7CCC7700A57833 /* HiddenGemsTests.swift */; };
 		B7E2B34F1C7CCC7700A57833 /* HiddenGemsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B34E1C7CCC7700A57833 /* HiddenGemsUITests.swift */; };
 		B7E2B35F1C7CE51A00A57833 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */; };
+		BA6FADA41C8FC2990053D9CB /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA6FADA31C8FC2990053D9CB /* background1.png */; };
+		BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B74A5B6A1C869D5C00E46425 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background1.png; path = ../../../../../Downloads/background1.png; sourceTree = "<group>"; };
 		B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		B7CCE86B1C7EBB5600255E66 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = SOURCE_ROOT; };
 		B7E2B32B1C7CCC7700A57833 /* HiddenGems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiddenGems.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +55,8 @@
 		B7E2B34E1C7CCC7700A57833 /* HiddenGemsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiddenGemsUITests.swift; sourceTree = "<group>"; };
 		B7E2B3501C7CCC7700A57833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BA6FADA31C8FC2990053D9CB /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = SOURCE_ROOT; };
+		BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +107,7 @@
 		B7E2B32D1C7CCC7700A57833 /* HiddenGems */ = {
 			isa = PBXGroup;
 			children = (
-				B74A5B6A1C869D5C00E46425 /* background1.png */,
+				BA6FADA31C8FC2990053D9CB /* background1.png */,
 				B7CCE86B1C7EBB5600255E66 /* background.jpg */,
 				B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */,
 				B7E2B3301C7CCC7700A57833 /* ViewController.swift */,
@@ -115,6 +117,7 @@
 				B7E2B33A1C7CCC7700A57833 /* Info.plist */,
 				B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */,
 				B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */,
+				BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */,
 			);
 			path = HiddenGems;
 			sourceTree = "<group>";
@@ -243,7 +246,7 @@
 				B7E2B3391C7CCC7700A57833 /* LaunchScreen.storyboard in Resources */,
 				B7CCE86C1C7EBB5600255E66 /* background.jpg in Resources */,
 				B7E2B3361C7CCC7700A57833 /* Assets.xcassets in Resources */,
-				B74A5B6B1C869D5C00E46425 /* background1.png in Resources */,
+				BA6FADA41C8FC2990053D9CB /* background1.png in Resources */,
 				B7E2B3341C7CCC7700A57833 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */,
+				BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */,
 				B7E2B3311C7CCC7700A57833 /* ViewController.swift in Sources */,
 				B7E2B35F1C7CE51A00A57833 /* MapViewController.swift in Sources */,
 				B7E2B32F1C7CCC7700A57833 /* AppDelegate.swift in Sources */,
