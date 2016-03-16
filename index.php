@@ -1,5 +1,6 @@
 <?php
 require_once ("Rest.php");
+require_once ("config.php");
 
 class API extends REST{
     private $db= NULL;
@@ -7,7 +8,7 @@ class API extends REST{
     // Constructor - open DB connection
     public function __construct() {
         parent::__construct();
-        $this->db = new mysqli('localhost', 'root', 'hiddengemsbp', 'HiddenGems');
+        $this->db = new mysqli(db_host ,db_username, db_password, db_database);
         //$this->db->autocommit(FALSE);
 
         if ($this->db->connect_error) {
