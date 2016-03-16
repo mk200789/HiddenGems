@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B74A5B6B1C869D5C00E46425 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = B74A5B6A1C869D5C00E46425 /* background1.png */; };
 		B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */; };
+		B77A27A71C9884A300AD95A9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77A27A61C9884A300AD95A9 /* RegisterViewController.swift */; };
+		B7CB05231C9227BA0087D04D /* RestCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CB05221C9227BA0087D04D /* RestCall.swift */; };
 		B7CCE86C1C7EBB5600255E66 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7CCE86B1C7EBB5600255E66 /* background.jpg */; };
 		B7E2B32F1C7CCC7700A57833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */; };
 		B7E2B3311C7CCC7700A57833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B3301C7CCC7700A57833 /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		B74A5B6A1C869D5C00E46425 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background1.png; path = ../../../../../Downloads/background1.png; sourceTree = "<group>"; };
 		B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		B77A27A61C9884A300AD95A9 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B7CB05221C9227BA0087D04D /* RestCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestCall.swift; path = ../RestCall.swift; sourceTree = "<group>"; };
 		B7CCE86B1C7EBB5600255E66 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = SOURCE_ROOT; };
 		B7E2B32B1C7CCC7700A57833 /* HiddenGems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiddenGems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 		B7E2B32D1C7CCC7700A57833 /* HiddenGems */ = {
 			isa = PBXGroup;
 			children = (
+				B7CB05221C9227BA0087D04D /* RestCall.swift */,
 				B74A5B6A1C869D5C00E46425 /* background1.png */,
 				B7CCE86B1C7EBB5600255E66 /* background.jpg */,
 				B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */,
@@ -115,6 +120,7 @@
 				B7E2B33A1C7CCC7700A57833 /* Info.plist */,
 				B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */,
 				B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */,
+				B77A27A61C9884A300AD95A9 /* RegisterViewController.swift */,
 			);
 			path = HiddenGems;
 			sourceTree = "<group>";
@@ -272,7 +278,9 @@
 				B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */,
 				B7E2B3311C7CCC7700A57833 /* ViewController.swift in Sources */,
 				B7E2B35F1C7CE51A00A57833 /* MapViewController.swift in Sources */,
+				B77A27A71C9884A300AD95A9 /* RegisterViewController.swift in Sources */,
 				B7E2B32F1C7CCC7700A57833 /* AppDelegate.swift in Sources */,
+				B7CB05231C9227BA0087D04D /* RestCall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
