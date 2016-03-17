@@ -10,10 +10,14 @@ import UIKit
 
 class RegisterViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var registerBox: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerBox.layer.cornerRadius = 10;
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
