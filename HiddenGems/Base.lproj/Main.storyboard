@@ -56,7 +56,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esp-jc-EFW">
                                         <rect key="frame" x="50" y="35" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQz-pe-T78">
@@ -149,6 +149,9 @@
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerButton:" destination="xMv-ni-erc" eventType="touchUpInside" id="SnH-Xf-YCU"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OjK-0c-0I7">
                                         <rect key="frame" x="33" y="265" width="274" height="30"/>
@@ -191,7 +194,7 @@
                                     <constraint firstAttribute="width" constant="196" id="wIs-jn-UAQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
@@ -207,7 +210,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="email" destination="OjK-0c-0I7" id="vpT-Na-pgo"/>
+                        <outlet property="password" destination="rIU-L8-1To" id="FWh-l3-RyL"/>
                         <outlet property="registerBox" destination="GcP-Lm-f2x" id="8O2-S0-aK7"/>
+                        <outlet property="repeatPassword" destination="9b0-Qp-d8a" id="KIX-Eo-j6H"/>
+                        <outlet property="username" destination="O5v-fX-mLp" id="LN7-6p-bUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1u-We-5Ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
