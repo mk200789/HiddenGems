@@ -50,7 +50,7 @@ class ViewController: UIViewController {
                     if status_code == 200{
                         print("User is logged in!")
                         
-                        //force queue to come to a close when data is obtained and display webcontent
+                        //force queue to come to a close so when can perfom the segue
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             
                             self.performSegueWithIdentifier("LoginToExplore", sender: nil)
@@ -58,8 +58,18 @@ class ViewController: UIViewController {
                         })
                     }
                     else{
-                        print(status_code)
-                        print("ERROR")
+                        //force queue to come to a close
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
+                            let alert = UIAlertController(title: "Login error", message: "Invalid password/username. Please try again.", preferredStyle: .Alert)
+                            
+                            let agree = UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+                            })
+                            
+                            alert.addAction(agree)
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        })
                     }
                 })
                 session.resume()
