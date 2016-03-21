@@ -24,9 +24,23 @@ class ViewController: UIViewController {
 
         if username.text.isEmpty{
             print("blank username!")
+            let alert = UIAlertController(title: "Login error", message: "Please enter a username.", preferredStyle: .Alert)
+            
+            let agree = UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+            })
+            
+            alert.addAction(agree)
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         else if password.text.isEmpty{
             print("blank password!")
+            let alert = UIAlertController(title: "Login error", message: "Please enter a password.", preferredStyle: .Alert)
+            
+            let agree = UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+            })
+            
+            alert.addAction(agree)
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         else{
             let attemptUrl = NSURL(string:"http://54.152.30.2/hg/login_user")
