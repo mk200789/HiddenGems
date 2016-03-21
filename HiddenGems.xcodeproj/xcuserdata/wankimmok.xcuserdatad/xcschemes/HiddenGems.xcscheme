@@ -43,7 +43,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B7E2B3491C7CCC7700A57833"
-               BuildableName = "HiddenGemsUITests.xctest"
+               BuildableName = "HiddenGemsUITests.bundle"
                BlueprintName = "HiddenGemsUITests"
                ReferencedContainer = "container:HiddenGems.xcodeproj">
             </BuildableReference>
@@ -71,7 +71,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B7E2B3491C7CCC7700A57833"
-               BuildableName = "HiddenGemsUITests.xctest"
+               BuildableName = "HiddenGemsUITests.bundle"
                BlueprintName = "HiddenGemsUITests"
                ReferencedContainer = "container:HiddenGems.xcodeproj">
             </BuildableReference>

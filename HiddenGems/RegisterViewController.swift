@@ -38,15 +38,49 @@ class RegisterViewController: UIViewController {
     
    
     @IBAction func registerButton(sender: UIButton) {
-       
-        postCreateUser()
+        //Swift 2:
+        //postCreateUser()
+        createUser()
         
         self.username.text = ""
         self.password.text = ""
         self.email.text = ""
+
     }
     
+    func createUser(){
+        let attemptUrl = NSURL(string:"http://54.152.30.2/hg/createuser")
+        
+        if let url = attemptUrl{
+            //prepare data for post request
+            let postParams = ["username": self.username.text, "password": self.password.text, "email": self.email.text] as Dictionary<String, String>
+            
+            //create a request instance
+            let request = NSMutableURLRequest(URL: url)
+            //set the request method to be a post method
+            request.HTTPMethod = "POST"
+            request.setValue("application/json; charset=utf8", forHTTPHeaderField: "Content-Type")
+            request.HTTPBody = NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions(), error: nil)
+            
+            
+            //create a session
+            let session = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                let status_code = (response as NSHTTPURLResponse).statusCode
+                
+                if status_code == 200{
+                    print("New user created!")
+                }
+                else{
+                    print("ERROR")
+                }
+            })
+            session.resume()
+        }
+    }
+
+        
     
+    /*Swift 2:
     //POST Create User
     
     func postCreateUser(){
@@ -87,7 +121,7 @@ class RegisterViewController: UIViewController {
         }).resume()
         
     }
-    
+    */
     
     
     func updatePostLabel(text: String) {

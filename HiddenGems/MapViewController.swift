@@ -22,7 +22,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     let locationManager = CLLocationManager()
    
-    var centerPoint = CLLocationCoordinate2D()
+    //Swift 2:
+    //var centerPoint = CLLocationCoordinate2D()
+    var centerPoint : CLLocationCoordinate2D!
     
     var circleOverlay = MKCircle()
     
@@ -93,7 +95,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
        let slider = sender.value
         
-        radiusText.text = String(slider)
+        //Swift 2:
+        //radiusText.text = String(slider)
+        radiusText.text = toString(slider)
         print(radiusSlider.value)
     }
     
