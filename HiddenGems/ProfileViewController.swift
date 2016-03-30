@@ -1,21 +1,17 @@
 //
-//  ExploreViewController.swift
+//  ProfileViewController.swift
 //  HiddenGems
 //
-//  Created by Melissa Rojas on 3/1/16.
-//  Copyright © 2016 Melissa Rojas. All rights reserved.
+//  Created by Wan Kim Mok on 3/29/16.
+//  Copyright (c) 2016 Melissa Rojas. All rights reserved.
 //
 
 import UIKit
 
-class ExploreViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
-        backgroundImage.image = UIImage(named: "background1.png")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
-        self.navigationController?.navigationBarHidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -26,10 +22,8 @@ class ExploreViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBarHidden = false
     }
-
-    
 
     /*
     // MARK: - Navigation
