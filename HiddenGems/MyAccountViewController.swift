@@ -1,41 +1,31 @@
 //
-//  ExploreViewController.swift
+//  MyAccountViewController.swift
 //  HiddenGems
 //
-//  Created by Melissa Rojas on 3/1/16.
+//  Created by Melissa Rojas on 3/31/16.
 //  Copyright © 2016 Melissa Rojas. All rights reserved.
 //
 
 import UIKit
 
-class ExploreViewController: UIViewController {
-    
-    
-    @IBOutlet weak var myAccount: UIButton!
-    
-    
+class MyAccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
-        backgroundImage.image = UIImage(named: "background1.png")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
-    
 
+        // Do any additional setup after loading the view.
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     
-    //Hide NavigationBar.
+    //Show NavigationBar.
     override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
+        self.navigationController?.navigationBarHidden = false
     }
-    
-    
     
     
     

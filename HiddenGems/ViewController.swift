@@ -13,8 +13,9 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var CreateAccount: UIButton!
-    
     @IBOutlet weak var logInBox: UIView!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
 
 
     override func viewDidLoad() {
@@ -27,6 +28,90 @@ class ViewController: UIViewController {
         
     }
 
+    
+    @IBAction func LogInButton(sender: UIButton) {
+        
+        
+        
+        
+        if (self.username.text!.isEmpty) || (self.password.text!.isEmpty) {
+            
+            let alert = UIAlertView()
+            alert.title = "Empty field"
+            alert.message = "Please enter information in every field"
+            alert.addButtonWithTitle("Ok")
+            alert.show()
+            
+        }else{
+            
+            postLogIn()
+            
+        }
+        
+        
+       
+        
+        
+    }
+    
+    //Function that allows us to make a POST request to send User and Password for Login
+    
+    
+    func postLogIn(){
+        
+        
+        let url = NSURL(string:"http://54.152.30.2/hg/login_user")!
+        let session = NSURLSession.sharedSession()
+        let postParams = ["username":self.username.text!, "password":self.password.text!] as Dictionary<String, String>
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
+            print(postParams)
+            
+        }catch{
+            print("JSON serialization failed")
+        }
+        
+        session.dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+            guard let realResponse = response as? NSHTTPURLResponse where
+                realResponse.statusCode == 200 else {
+                    print("Not a 200 response")
+                    print(data)
+                    print(response)
+                    print(error)
+                    
+                    return
+            }
+            
+            if let postString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String {
+                print("POST: " + postString)
+                self.performSelectorOnMainThread("updatePostLabel:", withObject: postString, waitUntilDone: false)
+                
+                
+                //force queue to come to a close.
+                dispatch_async(dispatch_get_main_queue(),{() ->Void in
+                    self.performSegueWithIdentifier("LoginToExplore", sender: nil)
+
+                    })
+
+
+            }
+        }).resume()
+        
+        
+        
+    }
+    
+    func  updatePostLabel(text: String) {
+        print("POST : " + "Successful")
+     
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

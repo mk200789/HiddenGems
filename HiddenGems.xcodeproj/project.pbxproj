@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */; };
-		B7CCE86C1C7EBB5600255E66 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7CCE86B1C7EBB5600255E66 /* background.jpg */; };
+		B756DDAD1CADF41B0005A612 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = B756DDA91CADF41B0005A612 /* face.png */; };
+		B756DDAF1CADF41B0005A612 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = B756DDAB1CADF41B0005A612 /* person.png */; };
+		B756DDB01CADF41B0005A612 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = B756DDAC1CADF41B0005A612 /* settings.png */; };
+		B756DDB21CADF8640005A612 /* logout-2.png in Resources */ = {isa = PBXBuildFile; fileRef = B756DDB11CADF8640005A612 /* logout-2.png */; };
+		B75D7FA91CAC2521009D38A4 /* Contacts-100.png in Resources */ = {isa = PBXBuildFile; fileRef = B75D7FA71CAC2521009D38A4 /* Contacts-100.png */; };
+		B75D7FAA1CAC2521009D38A4 /* Contacts-150.png in Resources */ = {isa = PBXBuildFile; fileRef = B75D7FA81CAC2521009D38A4 /* Contacts-150.png */; };
+		B78B65241CAB4F3200E903C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78B65221CAB4F3200E903C7 /* Main.storyboard */; };
+		B79D967F1CACF41B00043E99 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79D967E1CACF41B00043E99 /* PreferencesViewController.swift */; };
+		B79D96811CACFAB200043E99 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79D96801CACFAB200043E99 /* MyAccountViewController.swift */; };
+		B7D3EDB41CACEE660087FCA0 /* Contacts-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B7D3EDB31CACEE660087FCA0 /* Contacts-50.png */; };
 		B7E2B32F1C7CCC7700A57833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */; };
 		B7E2B3311C7CCC7700A57833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B3301C7CCC7700A57833 /* ViewController.swift */; };
-		B7E2B3341C7CCC7700A57833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7E2B3321C7CCC7700A57833 /* Main.storyboard */; };
 		B7E2B3361C7CCC7700A57833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7E2B3351C7CCC7700A57833 /* Assets.xcassets */; };
 		B7E2B3391C7CCC7700A57833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7E2B3371C7CCC7700A57833 /* LaunchScreen.storyboard */; };
 		B7E2B3441C7CCC7700A57833 /* HiddenGemsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B3431C7CCC7700A57833 /* HiddenGemsTests.swift */; };
@@ -41,11 +49,19 @@
 
 /* Begin PBXFileReference section */
 		B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
-		B7CCE86B1C7EBB5600255E66 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = SOURCE_ROOT; };
+		B756DDA91CADF41B0005A612 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = Icons/face.png; sourceTree = SOURCE_ROOT; };
+		B756DDAB1CADF41B0005A612 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = person.png; path = Icons/person.png; sourceTree = SOURCE_ROOT; };
+		B756DDAC1CADF41B0005A612 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = settings.png; path = Icons/settings.png; sourceTree = SOURCE_ROOT; };
+		B756DDB11CADF8640005A612 /* logout-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logout-2.png"; path = "Icons/logout-2.png"; sourceTree = SOURCE_ROOT; };
+		B75D7FA71CAC2521009D38A4 /* Contacts-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Contacts-100.png"; path = "Icons/Contacts-100.png"; sourceTree = SOURCE_ROOT; };
+		B75D7FA81CAC2521009D38A4 /* Contacts-150.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Contacts-150.png"; path = "Icons/Contacts-150.png"; sourceTree = SOURCE_ROOT; };
+		B78B65231CAB4F3200E903C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B79D967E1CACF41B00043E99 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesViewController.swift; path = ../PreferencesViewController.swift; sourceTree = "<group>"; };
+		B79D96801CACFAB200043E99 /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
+		B7D3EDB31CACEE660087FCA0 /* Contacts-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Contacts-50.png"; path = "Icons/Contacts-50.png"; sourceTree = SOURCE_ROOT; };
 		B7E2B32B1C7CCC7700A57833 /* HiddenGems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiddenGems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7E2B3301C7CCC7700A57833 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B7E2B3331C7CCC7700A57833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7E2B3351C7CCC7700A57833 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7E2B3381C7CCC7700A57833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7E2B33A1C7CCC7700A57833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,17 +125,25 @@
 		B7E2B32D1C7CCC7700A57833 /* HiddenGems */ = {
 			isa = PBXGroup;
 			children = (
+				B75D7FA71CAC2521009D38A4 /* Contacts-100.png */,
+				B7D3EDB31CACEE660087FCA0 /* Contacts-50.png */,
+				B75D7FA81CAC2521009D38A4 /* Contacts-150.png */,
+				B756DDA91CADF41B0005A612 /* face.png */,
+				B756DDAB1CADF41B0005A612 /* person.png */,
+				B756DDB11CADF8640005A612 /* logout-2.png */,
+				B756DDAC1CADF41B0005A612 /* settings.png */,
 				B7EB1EDC1C9A601800FF1C11 /* iph6&s.png */,
 				BA6FADA31C8FC2990053D9CB /* background1.png */,
-				B7CCE86B1C7EBB5600255E66 /* background.jpg */,
-				B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */,
-				B7E2B3301C7CCC7700A57833 /* ViewController.swift */,
-				B7E2B3321C7CCC7700A57833 /* Main.storyboard */,
+				B78B65221CAB4F3200E903C7 /* Main.storyboard */,
 				B7E2B3351C7CCC7700A57833 /* Assets.xcassets */,
 				B7E2B3371C7CCC7700A57833 /* LaunchScreen.storyboard */,
 				B7E2B33A1C7CCC7700A57833 /* Info.plist */,
+				B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */,
+				B7E2B3301C7CCC7700A57833 /* ViewController.swift */,
+				B79D96801CACFAB200043E99 /* MyAccountViewController.swift */,
 				B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */,
 				B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */,
+				B79D967E1CACF41B00043E99 /* PreferencesViewController.swift */,
 				BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */,
 			);
 			path = HiddenGems;
@@ -246,11 +270,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B756DDB01CADF41B0005A612 /* settings.png in Resources */,
 				B7E2B3391C7CCC7700A57833 /* LaunchScreen.storyboard in Resources */,
-				B7CCE86C1C7EBB5600255E66 /* background.jpg in Resources */,
+				B7D3EDB41CACEE660087FCA0 /* Contacts-50.png in Resources */,
+				B75D7FAA1CAC2521009D38A4 /* Contacts-150.png in Resources */,
 				B7E2B3361C7CCC7700A57833 /* Assets.xcassets in Resources */,
+				B78B65241CAB4F3200E903C7 /* Main.storyboard in Resources */,
+				B756DDB21CADF8640005A612 /* logout-2.png in Resources */,
 				BA6FADA41C8FC2990053D9CB /* background1.png in Resources */,
-				B7E2B3341C7CCC7700A57833 /* Main.storyboard in Resources */,
+				B756DDAD1CADF41B0005A612 /* face.png in Resources */,
+				B756DDAF1CADF41B0005A612 /* person.png in Resources */,
+				B75D7FA91CAC2521009D38A4 /* Contacts-100.png in Resources */,
 				B7EB1EDD1C9A601800FF1C11 /* iph6&s.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,8 +309,10 @@
 				B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */,
 				BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */,
 				B7E2B3311C7CCC7700A57833 /* ViewController.swift in Sources */,
+				B79D96811CACFAB200043E99 /* MyAccountViewController.swift in Sources */,
 				B7E2B35F1C7CE51A00A57833 /* MapViewController.swift in Sources */,
 				B7E2B32F1C7CCC7700A57833 /* AppDelegate.swift in Sources */,
+				B79D967F1CACF41B00043E99 /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,10 +348,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B7E2B3321C7CCC7700A57833 /* Main.storyboard */ = {
+		B78B65221CAB4F3200E903C7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B7E2B3331C7CCC7700A57833 /* Base */,
+				B78B65231CAB4F3200E903C7 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

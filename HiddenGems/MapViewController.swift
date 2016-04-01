@@ -95,6 +95,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         radiusText.text = String(slider)
         print(radiusSlider.value)
+        
+        mapView.removeOverlays(mapView.overlays)
+        
+        mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: CLLocationDistance(Double(slider))))
     }
     
     
@@ -120,6 +124,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: radiusCircle))
 
 }
+    
+    
+    //Show NavigationBar.
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
+    }
+    
     
     
 

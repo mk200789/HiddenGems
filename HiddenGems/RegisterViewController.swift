@@ -12,18 +12,16 @@ class RegisterViewController: UIViewController {
 
     
     @IBOutlet weak var username: UITextField!
-    
     @IBOutlet weak var password: UITextField!
-    
     @IBOutlet weak var email: UITextField!
-    
     @IBOutlet weak var repeatPassword: UITextField!
-    
     @IBOutlet weak var registerBox: UIView!
-    
+    @IBOutlet weak var fullName: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Blue box view that contains textfields.
         registerBox.layer.cornerRadius = 10;
       
 
@@ -36,18 +34,43 @@ class RegisterViewController: UIViewController {
     }
     
     
-   
+   //Button that calls the postCreate function and validates user entry to create new account. 
+    
+    
     @IBAction func registerButton(sender: UIButton) {
-       
-        postCreateUser()
         
-        self.username.text = ""
-        self.password.text = ""
-        self.email.text = ""
+        
+        if (self.username.text!.isEmpty) || (self.password.text!.isEmpty) || (self.repeatPassword.text!.isEmpty) || (self.email.text!.isEmpty) {
+            
+            let alert = UIAlertView()
+            alert.title = "Empty text field"
+            alert.message = "Please enter information in every text field"
+            alert.addButtonWithTitle("Ok")
+            alert.show()
+            
+        }else if repeatPassword.text == password.text {
+                postCreateUser()
+                self.username.text = ""
+                self.password.text = ""
+                self.email.text = ""
+                self.repeatPassword.text = ""
+                self.fullName.text = ""
+                
+            }else{
+                self.repeatPassword.layer.borderWidth = 3
+                self.repeatPassword.layer.borderColor = UIColor.redColor().CGColor
+                self.repeatPassword.text = ""
+    
+            
+        }
+       
+      
     }
     
+
     
-    //POST Create User
+    
+    //Function that allows us to make a POST request to Create an account
     
     func postCreateUser(){
         
