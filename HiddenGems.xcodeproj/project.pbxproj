@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49E1E0681CADF1640053A825 /* passRetrievalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E1E0671CADF1640053A825 /* passRetrievalViewController.swift */; };
 		B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */; };
 		B7CCE86C1C7EBB5600255E66 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B7CCE86B1C7EBB5600255E66 /* background.jpg */; };
 		B7E2B32F1C7CCC7700A57833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B32E1C7CCC7700A57833 /* AppDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49E1E0671CADF1640053A825 /* passRetrievalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = passRetrievalViewController.swift; sourceTree = "<group>"; };
 		B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		B7CCE86B1C7EBB5600255E66 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = SOURCE_ROOT; };
 		B7E2B32B1C7CCC7700A57833 /* HiddenGems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiddenGems.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,7 @@
 				B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */,
 				B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */,
 				BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */,
+				49E1E0671CADF1640053A825 /* passRetrievalViewController.swift */,
 			);
 			path = HiddenGems;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E1E0681CADF1640053A825 /* passRetrievalViewController.swift in Sources */,
 				B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */,
 				BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */,
 				B7E2B3311C7CCC7700A57833 /* ViewController.swift in Sources */,
