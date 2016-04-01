@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gZI-EQ-yvN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gZI-EQ-yvN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="uGK-ps-1Yt">
+            <objects>
+                <viewController id="xfz-UL-d22" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3DA-6z-82c"/>
+                        <viewControllerLayoutGuide type="bottom" id="q72-SL-38Q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="to0-nR-y7N">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a34-ax-f9k">
+                                <rect key="frame" x="40" y="318" width="334" height="50"/>
+                                <color key="backgroundColor" red="0.4823529411764706" green="0.83137254901960789" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="E8w-Zb-QCE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                <state key="normal" title="Send verification code">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mobile number to retrieve verification code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QO7-uk-ynu">
+                                <rect key="frame" x="40" y="280" width="334" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="QO7-uk-ynu" secondAttribute="trailing" constant="20" id="3XA-2x-xFs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a34-ax-f9k" secondAttribute="trailing" constant="20" id="Csy-bK-TWo"/>
+                            <constraint firstItem="a34-ax-f9k" firstAttribute="leading" secondItem="to0-nR-y7N" secondAttribute="leadingMargin" constant="20" id="K0T-hH-cPa"/>
+                            <constraint firstItem="a34-ax-f9k" firstAttribute="top" secondItem="QO7-uk-ynu" secondAttribute="bottom" constant="8" id="a3d-cf-Rda"/>
+                            <constraint firstItem="QO7-uk-ynu" firstAttribute="top" secondItem="3DA-6z-82c" secondAttribute="bottom" constant="216" id="bM0-2C-68L"/>
+                            <constraint firstItem="QO7-uk-ynu" firstAttribute="leading" secondItem="to0-nR-y7N" secondAttribute="leadingMargin" constant="20" id="vTy-kO-J7T"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1UG-y8-ubW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="-784"/>
+        </scene>
         <!--Hidden Gems-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -22,7 +66,7 @@
                                 <rect key="frame" x="32" y="405" width="350" height="257"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd2-bb-1l3">
-                                        <rect key="frame" x="8" y="102" width="334" height="50"/>
+                                        <rect key="frame" x="8" y="115" width="334" height="50"/>
                                         <color key="backgroundColor" red="0.54509803921568623" green="0.86274509803921573" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
                                         <state key="normal" title="Log In">
@@ -33,26 +77,15 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-j8-fH4">
-                                        <rect key="frame" x="8" y="64" width="334" height="30"/>
+                                        <rect key="frame" x="8" y="53" width="334" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kz5-w0-Vho">
-                                        <rect key="frame" x="8" y="20" width="334" height="30"/>
+                                        <rect key="frame" x="8" y="11" width="334" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtz-Xz-hvd">
-                                        <rect key="frame" x="8" y="160" width="334" height="50"/>
-                                        <color key="backgroundColor" red="0.41960784313725491" green="0.68235294117647061" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
-                                        <state key="normal" title="Create Account">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="xMv-ni-erc" kind="show" id="0GQ-k8-M4f"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Esp-jc-EFW">
                                         <rect key="frame" x="50" y="35" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -65,6 +98,30 @@
                                         <state key="normal" title="Forgot your password? Don't miss out the fun!!!">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="xfz-UL-d22" kind="show" id="zyx-1S-RNF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAQ-Yw-glI">
+                                        <rect key="frame" x="8" y="84" width="104" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                        <state key="normal" title="Forgot password?">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="xfz-UL-d22" kind="show" id="paZ-Ns-vhf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtz-Xz-hvd">
+                                        <rect key="frame" x="8" y="173" width="334" height="50"/>
+                                        <color key="backgroundColor" red="0.41960784313725491" green="0.68235294117647061" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                        <state key="normal" title="Create Account">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="xMv-ni-erc" kind="show" id="0GQ-k8-M4f"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -470,4 +527,7 @@
     <resources>
         <image name="iph6&amp;s.png" width="180" height="180"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zyx-1S-RNF"/>
+    </inferredMetricsTieBreakers>
 </document>
