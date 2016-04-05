@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		B71B85181CB45C1300669E20 /* HiddenGemData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B71B85161CB45C1300669E20 /* HiddenGemData.xcdatamodeld */; };
+
+
 		B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */; };
 		B756DDAD1CADF41B0005A612 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = B756DDA91CADF41B0005A612 /* face.png */; };
 		B756DDAF1CADF41B0005A612 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = B756DDAB1CADF41B0005A612 /* person.png */; };
@@ -52,7 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+
 		B71B85171CB45C1300669E20 /* HiddenGemData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HiddenGemData.xcdatamodel; sourceTree = "<group>"; };
+
 		B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		B756DDA91CADF41B0005A612 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = Icons/face.png; sourceTree = SOURCE_ROOT; };
 		B756DDAB1CADF41B0005A612 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = person.png; path = Icons/person.png; sourceTree = SOURCE_ROOT; };
@@ -157,6 +162,7 @@
 				B79D967E1CACF41B00043E99 /* PreferencesViewController.swift */,
 				BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */,
 				B71B85161CB45C1300669E20 /* HiddenGemData.xcdatamodeld */,
+
 			);
 			path = HiddenGems;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E1E0681CADF1640053A825 /* passRetrievalViewController.swift in Sources */,
 				B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */,
 				B71B85181CB45C1300669E20 /* HiddenGemData.xcdatamodeld in Sources */,
 				BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */,
