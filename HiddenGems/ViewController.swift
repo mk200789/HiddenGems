@@ -116,6 +116,30 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func unwindAction(sender: UIStoryboardSegue){
+        
+        self.username.text = ""
+        self.password.text = ""
+        
+    }
+    
+    
+    //Show NavigationBar
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    
+    
+    /*override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }*/
 
 
 }

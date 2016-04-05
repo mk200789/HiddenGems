@@ -10,8 +10,12 @@ import UIKit
 
 class MyAccountViewController: UIViewController {
 
+    @IBOutlet weak var updateBox: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateBox.layer.cornerRadius = 10
 
         // Do any additional setup after loading the view.
     }

@@ -13,6 +13,8 @@ class ExploreViewController: UIViewController {
     
     @IBOutlet weak var myAccount: UIButton!
     
+    @IBOutlet weak var logout: UIButton!
+    
     
 
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ class ExploreViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
     }
+   
     
     
     

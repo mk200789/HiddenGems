@@ -20,6 +20,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     @IBOutlet weak var radiusSlider: UISlider!
     
+    @IBOutlet weak var findEvents: UIButton!
+    
     let locationManager = CLLocationManager()
    
     var centerPoint = CLLocationCoordinate2D()
@@ -49,8 +51,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.mapType = .Standard
         
         self.radiusText.enabled = false
+        
+        self.findEvents.layer.cornerRadius = 10
+        
+        
 
-        // Do any additional setup after loading the view.
     }
     
     
@@ -113,17 +118,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     
     
-    @IBAction func DrawCircle(sender: UIButton) {
+   /* @IBAction func DrawCircle(sender: UIButton) {
         
-        //let radius:CLLocationDistance = (Double)radiusText.text
         
         let radiusCircle:CLLocationDistance = Double(radiusSlider.value)
         
-       // mapView.removeOverlay(MKCircle(centerCoordinate: centerPoint, radius: radius))
         
         mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: radiusCircle))
 
-}
+}*/
     
     
     //Show NavigationBar.

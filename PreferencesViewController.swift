@@ -9,9 +9,16 @@
 import UIKit
 
 class PreferencesViewController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var categoriesBox: UIView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        categoriesBox.layer.cornerRadius = 10
 
         // Do any additional setup after loading the view.
     }

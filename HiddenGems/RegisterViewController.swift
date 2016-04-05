@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class RegisterViewController: UIViewController {
 
@@ -16,11 +17,10 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var repeatPassword: UITextField!
     @IBOutlet weak var registerBox: UIView!
-    @IBOutlet weak var fullName: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //Blue box view that contains textfields.
         registerBox.layer.cornerRadius = 10;
       
@@ -31,6 +31,11 @@ class RegisterViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //Show NavigationBar
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = false
     }
     
     
@@ -49,13 +54,14 @@ class RegisterViewController: UIViewController {
             alert.show()
             
         }else if repeatPassword.text == password.text {
+            
                 postCreateUser()
+                coreDataCreateUser()
                 self.username.text = ""
                 self.password.text = ""
                 self.email.text = ""
                 self.repeatPassword.text = ""
-                self.fullName.text = ""
-                
+            
             }else{
                 self.repeatPassword.layer.borderWidth = 3
                 self.repeatPassword.layer.borderColor = UIColor.redColor().CGColor
@@ -115,6 +121,51 @@ class RegisterViewController: UIViewController {
     
     func updatePostLabel(text: String) {
         print("POST : " + "Successful")
+    }
+    
+    
+    func coreDataCreateUser(){
+        
+        //Variable that allows us to work with the default AppDelegate
+        let appDel: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        //Context variable, context is the handler for us to access the database
+        let context: NSManagedObjectContext = appDel.managedObjectContext
+        
+        let entity = NSEntityDescription.entityForName("USER", inManagedObjectContext: context)
+    
+        let newUser = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: context)
+        
+        newUser.setValue(username.text, forKey: "username")
+        
+        newUser.setValue(password.text, forKey: "password")
+        
+        newUser.setValue(email.text, forKey: "email")
+        
+        do{
+            try context.save()
+            
+        }catch{
+            
+            print("There was a problem while saving into USER")
+        }
+        
+        //To fecth information from the ENTITY -> USER
+        let request = NSFetchRequest(entityName: "USER")
+        
+        //To be able to access the data and see its values
+        request.returnsObjectsAsFaults = false
+        
+        do{
+            
+            let results = try context.executeFetchRequest(request)
+            print(results)
+            
+        }catch{
+            
+            print("There was a problem fetching ")
+        }
+        
     }
 
     
