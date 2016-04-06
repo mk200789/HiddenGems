@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
 		B71B85181CB45C1300669E20 /* HiddenGemData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B71B85161CB45C1300669E20 /* HiddenGemData.xcdatamodeld */; };
-
-
 		B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */; };
 		B756DDAD1CADF41B0005A612 /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = B756DDA91CADF41B0005A612 /* face.png */; };
 		B756DDAF1CADF41B0005A612 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = B756DDAB1CADF41B0005A612 /* person.png */; };
@@ -21,7 +18,6 @@
 		B75AB74A1CB02F5A000B878D /* Cocktail Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B75AB7491CB02F5A000B878D /* Cocktail Filled-50.png */; };
 		B75AB74C1CB032FC000B878D /* Bear Footprint Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B75AB74B1CB032FC000B878D /* Bear Footprint Filled-50.png */; };
 		B75AB74E1CB0346D000B878D /* Deciduous Tree Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B75AB74D1CB0346D000B878D /* Deciduous Tree Filled-50.png */; };
-		B75AB7501CB0372D000B878D /* Kitesurfing Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = B75AB74F1CB0372D000B878D /* Kitesurfing Filled-50.png */; };
 		B78B65241CAB4F3200E903C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B78B65221CAB4F3200E903C7 /* Main.storyboard */; };
 		B79D967F1CACF41B00043E99 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79D967E1CACF41B00043E99 /* PreferencesViewController.swift */; };
 		B79D96811CACFAB200043E99 /* MyAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79D96801CACFAB200043E99 /* MyAccountViewController.swift */; };
@@ -33,6 +29,7 @@
 		B7E2B34F1C7CCC7700A57833 /* HiddenGemsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B34E1C7CCC7700A57833 /* HiddenGemsUITests.swift */; };
 		B7E2B35F1C7CE51A00A57833 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */; };
 		B7EB1EDD1C9A601800FF1C11 /* iph6&s.png in Resources */ = {isa = PBXBuildFile; fileRef = B7EB1EDC1C9A601800FF1C11 /* iph6&s.png */; };
+		BA28B64F1CB47B38006E66A0 /* Kitesurfing Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = BA28B64E1CB47B38006E66A0 /* Kitesurfing Filled-50.png */; };
 		BA6FADA41C8FC2990053D9CB /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA6FADA31C8FC2990053D9CB /* background1.png */; };
 		BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
@@ -55,9 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-
 		B71B85171CB45C1300669E20 /* HiddenGemData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HiddenGemData.xcdatamodel; sourceTree = "<group>"; };
-
 		B74A5B6C1C86A38B00E46425 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		B756DDA91CADF41B0005A612 /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.png; path = Icons/face.png; sourceTree = SOURCE_ROOT; };
 		B756DDAB1CADF41B0005A612 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = person.png; path = Icons/person.png; sourceTree = SOURCE_ROOT; };
@@ -68,7 +63,6 @@
 		B75AB7491CB02F5A000B878D /* Cocktail Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Cocktail Filled-50.png"; path = "Icons/Cocktail Filled-50.png"; sourceTree = SOURCE_ROOT; };
 		B75AB74B1CB032FC000B878D /* Bear Footprint Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Bear Footprint Filled-50.png"; path = "Icons/Bear Footprint Filled-50.png"; sourceTree = SOURCE_ROOT; };
 		B75AB74D1CB0346D000B878D /* Deciduous Tree Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Deciduous Tree Filled-50.png"; path = "Icons/Deciduous Tree Filled-50.png"; sourceTree = SOURCE_ROOT; };
-		B75AB74F1CB0372D000B878D /* Kitesurfing Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Kitesurfing Filled-50.png"; path = "../../../../../Downloads/Kitesurfing Filled-50.png"; sourceTree = "<group>"; };
 		B78B65231CAB4F3200E903C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B79D967E1CACF41B00043E99 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesViewController.swift; path = ../PreferencesViewController.swift; sourceTree = "<group>"; };
 		B79D96801CACFAB200043E99 /* MyAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAccountViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +80,7 @@
 		B7E2B3501C7CCC7700A57833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7E2B35E1C7CE51A00A57833 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		B7EB1EDC1C9A601800FF1C11 /* iph6&s.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iph6&s.png"; sourceTree = SOURCE_ROOT; };
+		BA28B64E1CB47B38006E66A0 /* Kitesurfing Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Kitesurfing Filled-50.png"; sourceTree = SOURCE_ROOT; };
 		BA6FADA31C8FC2990053D9CB /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = SOURCE_ROOT; };
 		BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +133,7 @@
 		B7E2B32D1C7CCC7700A57833 /* HiddenGems */ = {
 			isa = PBXGroup;
 			children = (
+				BA28B64E1CB47B38006E66A0 /* Kitesurfing Filled-50.png */,
 				B756DDA91CADF41B0005A612 /* face.png */,
 				B756DDAB1CADF41B0005A612 /* person.png */,
 				B756DDB11CADF8640005A612 /* logout-2.png */,
@@ -148,7 +144,6 @@
 				B75AB7491CB02F5A000B878D /* Cocktail Filled-50.png */,
 				B75AB74B1CB032FC000B878D /* Bear Footprint Filled-50.png */,
 				B75AB74D1CB0346D000B878D /* Deciduous Tree Filled-50.png */,
-				B75AB74F1CB0372D000B878D /* Kitesurfing Filled-50.png */,
 				BA6FADA31C8FC2990053D9CB /* background1.png */,
 				B78B65221CAB4F3200E903C7 /* Main.storyboard */,
 				B7E2B3351C7CCC7700A57833 /* Assets.xcassets */,
@@ -162,7 +157,6 @@
 				B79D967E1CACF41B00043E99 /* PreferencesViewController.swift */,
 				BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */,
 				B71B85161CB45C1300669E20 /* HiddenGemData.xcdatamodeld */,
-
 			);
 			path = HiddenGems;
 			sourceTree = "<group>";
@@ -300,7 +294,7 @@
 				BA6FADA41C8FC2990053D9CB /* background1.png in Resources */,
 				B756DDAD1CADF41B0005A612 /* face.png in Resources */,
 				B75AB74A1CB02F5A000B878D /* Cocktail Filled-50.png in Resources */,
-				B75AB7501CB0372D000B878D /* Kitesurfing Filled-50.png in Resources */,
+				BA28B64F1CB47B38006E66A0 /* Kitesurfing Filled-50.png in Resources */,
 				B756DDAF1CADF41B0005A612 /* person.png in Resources */,
 				B7EB1EDD1C9A601800FF1C11 /* iph6&s.png in Resources */,
 			);
@@ -327,7 +321,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49E1E0681CADF1640053A825 /* passRetrievalViewController.swift in Sources */,
 				B74A5B6D1C86A38B00E46425 /* ExploreViewController.swift in Sources */,
 				B71B85181CB45C1300669E20 /* HiddenGemData.xcdatamodeld in Sources */,
 				BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */,
