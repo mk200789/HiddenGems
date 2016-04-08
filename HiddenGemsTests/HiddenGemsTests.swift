@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import HiddenGems
+//@testable import HiddenGems
 
 class HiddenGemsTests: XCTestCase {
     

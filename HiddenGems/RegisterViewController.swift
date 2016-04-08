@@ -26,7 +26,9 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         registerBox.layer.cornerRadius = 10;
         
-        
+        //Remove keyboard on touch
+        self.hideKeyboardWhenTappedAround()
+      
     }
     
     

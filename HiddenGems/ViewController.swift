@@ -8,6 +8,18 @@
 
 import UIKit
 
+// Function to remove keyboard on touch
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 class ViewController: UIViewController {
     
     
@@ -19,6 +31,19 @@ class ViewController: UIViewController {
     @IBOutlet var username: UITextField!
     
     @IBOutlet weak var password: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        backgroundImage.image = UIImage(named: "background1.png")
+        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.logInBox.layer.cornerRadius = 10
+        self.logInBox.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.5)
+        self.hideKeyboardWhenTappedAround()
+        
+        
+    }
+
     
     @IBAction func login(sender: AnyObject) {
         
@@ -95,15 +120,7 @@ class ViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
-        backgroundImage.image = UIImage(named: "background1.png")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
-        self.logInBox.layer.cornerRadius = 10
-        self.logInBox.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.5)
-        
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -111,5 +128,33 @@ class ViewController: UIViewController {
     }
     
     
+
+    @IBAction func unwindAction(sender: UIStoryboardSegue){
+        
+        self.username.text = ""
+        self.password.text = ""
+        
+    }
+    
+    
+    //Show NavigationBar
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+    }
+    
+    
+    
+    
+    
+    /*override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
+    }*/
+
+
+
 }
 

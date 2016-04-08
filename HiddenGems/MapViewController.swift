@@ -63,7 +63,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         //self.findEvents.layer.cornerRadius = 10
         
-        // Do any additional setup after loading the view.
+
+        //Remove keyboard on touch
+        self.hideKeyboardWhenTappedAround()
+        
         
     }
     
@@ -100,10 +103,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func update(){
         //venues search using userless access
-        
-        //let venues : NSString = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=XC5G1YSZQWRNB0UH1VMDAMKZWX453N1IPUHWNO1XHG5AC3VH&client_secret=5XGRVKYPGJHPK5NGODYBTI2GKQU2JUMJQMAXYMTS2TTZ3RXX&v=20160331"
-        
-        //let venues : NSString = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id="+fqClient_id+"&client_secret="+fqClient_secret+"&v=20160331" as NSString
         
         let p1 : NSString = "https://api.foursquare.com/v2/venues/search?ll="+toString(xloc)+","+toString(yloc) as NSString
         
@@ -182,20 +181,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         return circleRenderer
     }
-    
-    /*
-    @IBAction func DrawCircle(sender: UIButton) {
-    
-    //let radius:CLLocationDistance = (Double)radiusText.text
-    
-    let radiusCircle:CLLocationDistance = Double(radiusSlider.value)
-    
-    // mapView.removeOverlay(MKCircle(centerCoordinate: centerPoint, radius: radius))
-    
-    mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: radiusCircle))
-    
-    
-    }*/
+
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Nearby", style: .Plain, target: self, action: "nearbyTapped")

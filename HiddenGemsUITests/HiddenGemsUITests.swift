@@ -5,7 +5,7 @@
 //  Created by Melissa Rojas on 2/23/16.
 //  Copyright © 2016 Melissa Rojas. All rights reserved.
 //
-
+/*
 import XCTest
 
 class HiddenGemsUITests: XCTestCase {
@@ -34,3 +34,4 @@ class HiddenGemsUITests: XCTestCase {
     }
     
 }
+*/
