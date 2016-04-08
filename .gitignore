@@ -1,0 +1,9 @@
+# Mac OSX
+
+.DS_Store
+
+HiddenGems.xcodeproj/project.xcworkspace/xcshareddata/
+HiddenGems.xcodeproj/xcuserdata/wankimmok.xcuserdatad/xcdebugger/
+HiddenGems/.DS_Store
+HiddenGemsUITests/
+HiddenGemsTests/
