@@ -13,11 +13,88 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var CreateAccount: UIButton!
+    
     @IBOutlet weak var logInBox: UIView!
-    @IBOutlet weak var username: UITextField!
+    
+    @IBOutlet var username: UITextField!
+    
     @IBOutlet weak var password: UITextField!
-
-
+    
+    @IBAction func login(sender: AnyObject) {
+        
+        if username.text.isEmpty{
+            print("blank username!")
+            let alert = UIAlertController(title: "Login error", message: "Please enter a username.", preferredStyle: .Alert)
+            
+            let agree = UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+            })
+            
+            alert.addAction(agree)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else if password.text.isEmpty{
+            print("blank password!")
+            let alert = UIAlertController(title: "Login error", message: "Please enter a password.", preferredStyle: .Alert)
+            
+            let agree = UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+            })
+            
+            alert.addAction(agree)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else{
+            let attemptUrl = NSURL(string:"http://54.152.30.2/hg/login")
+            
+            if let url = attemptUrl{
+                
+                //prepare data for post request
+                let postParams = ["username": username.text, "password": password.text] as Dictionary<String, String>
+                
+                //create a request instance
+                let request = NSMutableURLRequest(URL: url)
+                //set to post method
+                request.HTTPMethod = "POST"
+                request.setValue("application/json; charset=utf8", forHTTPHeaderField: "Content-Type")
+                request.HTTPBody = NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions(), error: nil)
+                
+                //create session
+                let session = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                    
+                    let status_code = (response as NSHTTPURLResponse).statusCode
+                    
+                    if status_code == 200{
+                        print("User is logged in!")
+                        
+                        //force queue to come to a close so when can perfom the segue
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
+                            self.performSegueWithIdentifier("LoginToExplore", sender: nil)
+                            
+                        })
+                    }
+                    else{
+                        //force queue to come to a close
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
+                            let alert = UIAlertController(title: "Login error", message: "Invalid password/username. Please try again.", preferredStyle: .Alert)
+                            
+                            let agree = UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+                            })
+                            
+                            alert.addAction(agree)
+                            self.presentViewController(alert, animated: true, completion: nil)
+                            
+                        })
+                    }
+                })
+                session.resume()
+                
+                username.text = ""
+                password.text = ""
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
@@ -27,90 +104,6 @@ class ViewController: UIViewController {
         self.logInBox.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.5)
         
     }
-
-    
-    @IBAction func LogInButton(sender: UIButton) {
-        
-        
-        
-        
-        if (self.username.text!.isEmpty) || (self.password.text!.isEmpty) {
-            
-            let alert = UIAlertView()
-            alert.title = "Empty field"
-            alert.message = "Please enter information in every field"
-            alert.addButtonWithTitle("Ok")
-            alert.show()
-            
-        }else{
-            
-            postLogIn()
-            
-        }
-        
-        
-       
-        
-        
-    }
-    
-    //Function that allows us to make a POST request to send User and Password for Login
-    
-    
-    func postLogIn(){
-        
-        
-        let url = NSURL(string:"http://54.152.30.2/hg/login_user")!
-        let session = NSURLSession.sharedSession()
-        let postParams = ["username":self.username.text!, "password":self.password.text!] as Dictionary<String, String>
-        
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        
-        do {
-            request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions())
-            print(postParams)
-            
-        }catch{
-            print("JSON serialization failed")
-        }
-        
-        session.dataTaskWithRequest(request, completionHandler: { (data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
-            guard let realResponse = response as? NSHTTPURLResponse where
-                realResponse.statusCode == 200 else {
-                    print("Not a 200 response")
-                    print(data)
-                    print(response)
-                    print(error)
-                    
-                    return
-            }
-            
-            if let postString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String {
-                print("POST: " + postString)
-                self.performSelectorOnMainThread("updatePostLabel:", withObject: postString, waitUntilDone: false)
-                
-                
-                //force queue to come to a close.
-                dispatch_async(dispatch_get_main_queue(),{() ->Void in
-                    self.performSegueWithIdentifier("LoginToExplore", sender: nil)
-
-                    })
-
-
-            }
-        }).resume()
-        
-        
-        
-    }
-    
-    func  updatePostLabel(text: String) {
-        print("POST : " + "Successful")
-     
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -118,29 +111,5 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func unwindAction(sender: UIStoryboardSegue){
-        
-        self.username.text = ""
-        self.password.text = ""
-        
-    }
-    
-    
-    //Show NavigationBar
-    override func viewWillAppear(animated: Bool) {
-        self.navigationController?.navigationBarHidden = true
-    }
-    
-    
-    
-    /*override func shouldAutorotate() -> Bool {
-        return false
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.Portrait
-    }*/
-
-
 }
 
