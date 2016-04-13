@@ -42,7 +42,20 @@ class ViewController: UIViewController {
         self.logInBox.backgroundColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.5)
         self.hideKeyboardWhenTappedAround()
         
+        //refers to AppDelegate
+        let appDel: AppDelegate =  UIApplication.sharedApplication().delegate as AppDelegate
         
+        //allows to access coredata database
+        let context: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        //create a request that allows us to get data from users entity
+        let request = NSFetchRequest(entityName: "USER")
+        
+        let results = context.executeFetchRequest(request, error:nil)
+        
+        if results?.count > 0 {
+            self.performSegueWithIdentifier("LoginToExplore", sender: nil)
+        }
     }
 
     

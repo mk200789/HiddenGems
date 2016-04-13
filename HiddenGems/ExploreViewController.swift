@@ -11,7 +11,6 @@ import CoreData
 
 class ExploreViewController: UIViewController {
     
-    
     @IBOutlet weak var myAccount: UIButton!
     
     @IBOutlet weak var logout: UIButton!
