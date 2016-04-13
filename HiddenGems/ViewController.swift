@@ -109,6 +109,7 @@ class ViewController: UIViewController {
                             let results = context.executeFetchRequest(request, error:nil)
                             
                             if results?.count == 0 {
+                                print("adding user to db")
                                 //1.specify which entity your going to use
                                 let user = NSEntityDescription.insertNewObjectForEntityForName("USER", inManagedObjectContext: context) as NSManagedObject
                                 //2.set the value for username

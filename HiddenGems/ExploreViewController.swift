@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ExploreViewController: UIViewController {
     
@@ -15,8 +16,6 @@ class ExploreViewController: UIViewController {
     
     @IBOutlet weak var logout: UIButton!
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
@@ -31,6 +30,32 @@ class ExploreViewController: UIViewController {
 
     @IBAction func logout(sender: AnyObject) {
         //when logout make sure user is erased from db
+        //save json data in local storage
+        
+        //refers to AppDelegate
+        let appDel: AppDelegate =  UIApplication.sharedApplication().delegate as AppDelegate
+        
+        //allows to access coredata database
+        let context: NSManagedObjectContext = appDel.managedObjectContext!
+        
+        //create a request that allows us to get data from users entity
+        let request = NSFetchRequest(entityName: "USER")
+        
+        let results = context.executeFetchRequest(request, error:nil)
+        
+        if results?.count > 0 {
+            for result in results as [NSManagedObject]{
+                print("Deleting \(result)")
+                context.deleteObject(result)
+                context.save(nil)
+            }
+
+        }
+        else{
+            print("no result to delete!")
+        }
+        
+
     }
 
     override func didReceiveMemoryWarning() {
