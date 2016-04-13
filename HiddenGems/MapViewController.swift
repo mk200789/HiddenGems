@@ -108,8 +108,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func update(){
         //Using foursquare api: "search" - venues search using userless access
         
+        //Setup for formatting date to use in foursquare api
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyymmdd"
+        
+        //format todays date to yymmdd format
         let date : String = dateFormatter.stringFromDate(NSDate())
         
         let baseURL : NSString = "https://api.foursquare.com/v2/venues/search?ll="+toString(xloc)+","+toString(yloc) as NSString
@@ -120,7 +123,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         let venues : NSString = baseURL + creds + radius as NSString
         
-        print(venues)
+        //print(venues)
         
         //venues url
         let venuesURL = NSURL(string: venues)
@@ -163,18 +166,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func pinUpdates(){
         
+        //remove all annotations
+        mapView.removeAnnotations(mapView.annotations)
+        
         for venue in venueList{
             var location = venue["location"] as NSDictionary
             
+            //get lattitude longitude
             var lat : CLLocationDegrees = location["lat"] as CLLocationDegrees
             var lng : CLLocationDegrees = location["lng"] as CLLocationDegrees
             
+            //convert coordinate to CLLocationCoordinate2D type
             var newCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lng)
             
+            //create new annotation for each venue
             var annotation = MKPointAnnotation()
             annotation.coordinate = newCoordinate
             annotation.title = venue["name"] as String
-            //print(venue["name"])
+            
+            //add annotation to the map
             mapView.addAnnotation(annotation)
             
         }
@@ -198,17 +208,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //radiusText.text = String(slider)
         radiusText.text = toString(slider)
         
-        mapView.showsUserLocation = false
-        mapView.removeAnnotations(mapView.annotations)
-        mapView.showsUserLocation = true
-        
+        //update()call whenever radius is adjust
         update()
         
         mapView.removeOverlays(mapView.overlays)
         
         //note: cllocationdistance is in meters
         mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: CLLocationDistance(Double(slider))))
-        //mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: CLLocationDistance(1.0)))
 
         
         
