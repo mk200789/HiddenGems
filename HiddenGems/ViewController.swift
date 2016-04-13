@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 // Function to remove keyboard on touch
 extension UIViewController {
@@ -92,6 +93,41 @@ class ViewController: UIViewController {
                         
                         //force queue to come to a close so when can perfom the segue
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
+                            let jsondata = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                            
+                            //save json data in local storage
+                            
+                            //refers to AppDelegate
+                            let appDel: AppDelegate =  UIApplication.sharedApplication().delegate as AppDelegate
+                            
+                            //allows to access coredata database
+                            let context: NSManagedObjectContext = appDel.managedObjectContext!
+
+                            //create a request that allows us to get data from users entity
+                            let request = NSFetchRequest(entityName: "USER")
+                            let results = context.executeFetchRequest(request, error:nil)
+                            
+                            if results?.count == 0 {
+                                //1.specify which entity your going to use
+                                let user = NSEntityDescription.insertNewObjectForEntityForName("USER", inManagedObjectContext: context) as NSManagedObject
+                                //2.set the value for username
+                                user.setValue(jsondata["username"], forKey: "username")
+                                //3. set value for password
+                                user.setValue(jsondata["password"], forKey: "password")
+                                //4. set value for email
+                                user.setValue(jsondata["email"], forKey: "email")
+                                //5. save to db
+                                context.save(nil)
+
+                            }
+                            if results?.count > 0 {
+                                print("there is results!: \n")
+                                for result in results as [NSManagedObject]{
+                                    print(result.valueForKey("username"))
+                                    print("\n")
+                                }
+                            }
                             
                             self.performSegueWithIdentifier("LoginToExplore", sender: nil)
                             

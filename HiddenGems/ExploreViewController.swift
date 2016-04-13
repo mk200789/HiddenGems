@@ -29,6 +29,9 @@ class ExploreViewController: UIViewController {
 
     }
 
+    @IBAction func logout(sender: AnyObject) {
+        //when logout make sure user is erased from db
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

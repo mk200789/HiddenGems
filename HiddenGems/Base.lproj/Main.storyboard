@@ -298,6 +298,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="logout:" destination="Zdz-Ji-gLd" eventType="touchUpInside" id="9z0-od-EkZ"/>
                                     <segue destination="Cch-TU-AMP" kind="unwind" unwindAction="unwindAction:" id="M94-mN-mp7"/>
                                 </connections>
                             </button>

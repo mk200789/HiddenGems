@@ -16,12 +16,16 @@ var yloc : CLLocationDegrees!
 
 var venueList : [NSDictionary]!
 
+var imageCache = [String: NSData]()
+
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     let fqClient_id = "XC5G1YSZQWRNB0UH1VMDAMKZWX453N1IPUHWNO1XHG5AC3VH"
     let fqClient_secret = "5XGRVKYPGJHPK5NGODYBTI2GKQU2JUMJQMAXYMTS2TTZ3RXX"
     
     //@IBOutlet weak var findEvents: UIButton!
+    
+
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -93,12 +97,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.mapView.setRegion(region, animated: true)
         
         //self.locationManager.stopUpdatingLocation()
-        
+
         if(xloc != myLocation!.coordinate.latitude || xloc == nil){
             xloc = myLocation!.coordinate.latitude
             yloc = myLocation!.coordinate.longitude
             update()
-            print("calling update()")
+            //print("calling update()")
 
         }
         
@@ -119,11 +123,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         let creds : NSString = "&client_id="+fqClient_id+"&client_secret="+fqClient_secret+"&v="+date as NSString
         
-        let radius : NSString = "&radius="+toString(radiusText.text)+"&intent=browse" as NSString
+        let radius : NSString = "&radius="+toString(radiusText.text)+"&intent=browse&limit=30" as NSString
         
         let venues : NSString = baseURL + creds + radius as NSString
         
-        //print(venues)
+        print(venues)
         
         //venues url
         let venuesURL = NSURL(string: venues)
@@ -135,8 +139,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 let status_code = (response as NSHTTPURLResponse).statusCode
                 
                 if status_code == 200{
-                    print("success!")
-                    
                     //check for content
                     if let urlContent = data{
                         
@@ -152,7 +154,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             venueList = data["venues"] as [NSDictionary]
-                            print("hello")
+                            imageCache = [String: NSData]()
                             self.pinUpdates()
                         })
                         
@@ -161,16 +163,42 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
             }
             session.resume()
+            
         }
     }
+    
     
     func pinUpdates(){
         
         //remove all annotations
         mapView.removeAnnotations(mapView.annotations)
         
+        var count = 0
+        
         for venue in venueList{
             var location = venue["location"] as NSDictionary
+            
+            var cat = venue["categories"] as NSArray
+            var id = venue["id"] as String
+            var category = (cat[0] as NSDictionary)["icon"] as NSDictionary
+            var prefix = category["prefix"] as NSString
+            var suffix = category["suffix"] as NSString
+            var url = NSURL(string: prefix+"bg_512"+suffix)!
+            
+            
+            
+            let session = NSURLSession.sharedSession().dataTaskWithURL(url){ (data, response, error) -> Void in
+                //if error == nil{
+                if (data != nil) {
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        imageCache[id] = data as NSData
+                    })
+                }
+            }
+            session.resume()
+
+      
+    
             
             //get lattitude longitude
             var lat : CLLocationDegrees = location["lat"] as CLLocationDegrees
@@ -181,14 +209,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             //create new annotation for each venue
             var annotation = MKPointAnnotation()
+            //var annotation = CustomPointAnnotation(pinColor: UIColor.purpleColor())
             annotation.coordinate = newCoordinate
             annotation.title = venue["name"] as String
+            
             
             //add annotation to the map
             mapView.addAnnotation(annotation)
             
         }
+
+        
     }
+    
+    
     
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -238,7 +272,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     
     func nearbyTapped(){
-        print("performed!")
         self.performSegueWithIdentifier("nearbyList", sender: nil)
     }
     
@@ -255,9 +288,34 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     */
     
+  /*
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let annotationView = MKPinAnnotationView()
+        
+        annotationView.image = UIImage(named: "marker_purple.png")
+        
+        annotationView.canShowCallout = true
+        
+        
+        // Resize image
+        
+        let pinImage = UIImage(named: "marker_purple.png")
+        let height = pinImage?.size.height
+        let width = pinImage?.size.width
+
+        let size = CGSize(width: width!/3, height: height!/3)
+        UIGraphicsBeginImageContext(size)
+        pinImage!.drawInRect(CGRectMake(0, 0, size.width, size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        annotationView.image = resizedImage
+
+        
+        return annotationView
+    }
+*/
 }
 
 
-class CustomPointAnnotation : MKPointAnnotation {
-    var imageName : String = "marker_purple.png" as String
-}

@@ -44,6 +44,10 @@ class NearbyViewController: UITableViewController {
         cell.textLabel?.text = venueList[indexPath.row]["name"] as? String
         var location = venueList[indexPath.row]["location"] as NSDictionary
         cell.detailTextLabel?.text = location["address"] as? String
+        var id = venueList[indexPath.row]["id"] as String
+        //cell.imageView?.image = UIImage(named: "marker_red.png")
+        //var data = imageCache[indexPath.row][
+        cell.imageView?.image = UIImage(data: imageCache[id]!)
         
         return cell
     }
