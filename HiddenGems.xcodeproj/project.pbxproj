@@ -33,6 +33,8 @@
 		BA2C97E31CB49B70007E49A8 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2C97E21CB49B70007E49A8 /* ForgetPasswordVC.swift */; };
 		BA6FADA41C8FC2990053D9CB /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = BA6FADA31C8FC2990053D9CB /* background1.png */; };
 		BA6FADAB1C90FE7F0053D9CB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */; };
+		C69A240A1CBDBC7300969AE6 /* marker_purple.png in Resources */ = {isa = PBXBuildFile; fileRef = C69A24081CBDBC7300969AE6 /* marker_purple.png */; };
+		C69A240B1CBDBC7300969AE6 /* marker_red.png in Resources */ = {isa = PBXBuildFile; fileRef = C69A24091CBDBC7300969AE6 /* marker_red.png */; };
 		C6D7EE2B1CB7241C007C16AB /* NearbyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D7EE2A1CB7241C007C16AB /* NearbyViewController.swift */; };
 		C6D7EE2D1CB72585007C16AB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C6D7EE2C1CB72585007C16AB /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
@@ -87,6 +89,8 @@
 		BA2C97E21CB49B70007E49A8 /* ForgetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordVC.swift; sourceTree = "<group>"; };
 		BA6FADA31C8FC2990053D9CB /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = SOURCE_ROOT; };
 		BA6FADAA1C90FE7F0053D9CB /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C69A24081CBDBC7300969AE6 /* marker_purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_purple.png; sourceTree = "<group>"; };
+		C69A24091CBDBC7300969AE6 /* marker_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marker_red.png; sourceTree = "<group>"; };
 		C6D7EE2A1CB7241C007C16AB /* NearbyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyViewController.swift; sourceTree = "<group>"; };
 		C6D7EE2C1CB72585007C16AB /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +149,8 @@
 				B756DDAB1CADF41B0005A612 /* person.png */,
 				B756DDB11CADF8640005A612 /* logout-2.png */,
 				B756DDAC1CADF41B0005A612 /* settings.png */,
+				C69A24081CBDBC7300969AE6 /* marker_purple.png */,
+				C69A24091CBDBC7300969AE6 /* marker_red.png */,
 				B7EB1EDC1C9A601800FF1C11 /* iph6&s.png */,
 				B75AB7451CB02D00000B878D /* Museum Filled-50.png */,
 				B75AB7471CB02E9F000B878D /* Restaurant Filled-50.png */,
@@ -305,8 +311,10 @@
 				B75AB74A1CB02F5A000B878D /* Cocktail Filled-50.png in Resources */,
 				BA28B64F1CB47B38006E66A0 /* Kitesurfing Filled-50.png in Resources */,
 				BA2C97E11CB48F5F007E49A8 /* Default-568h@2x.png in Resources */,
+				C69A240A1CBDBC7300969AE6 /* marker_purple.png in Resources */,
 				B756DDAF1CADF41B0005A612 /* person.png in Resources */,
 				B7EB1EDD1C9A601800FF1C11 /* iph6&s.png in Resources */,
+				C69A240B1CBDBC7300969AE6 /* marker_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

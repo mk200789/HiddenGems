@@ -571,10 +571,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venuesCell" id="cZz-zM-OPf">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="venuesCell" textLabel="mAl-Uu-Gun" detailTextLabel="y3b-hd-M3g" style="IBUITableViewCellStyleSubtitle" id="cZz-zM-OPf">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cZz-zM-OPf" id="mTq-0l-7u0">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mAl-Uu-Gun">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y3b-hd-M3g">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -750,8 +764,8 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="arN-tj-cLh"/>
                                     <barButtonItem style="plain" id="70I-MG-Kju">
-                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="500" maxValue="1600" id="Ew1-GD-pAK">
-                                            <rect key="frame" x="173" y="7" width="138" height="31"/>
+                                        <slider key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="100" maxValue="400" id="Ew1-GD-pAK">
+                                            <rect key="frame" x="173" y="6.5" width="142" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="tintColor" red="0.4823529412" green="0.83137254900000002" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
@@ -761,7 +775,7 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Urw-0s-lxL"/>
                                     <barButtonItem style="plain" id="YHF-vB-Wgr">
-                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1000.0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Q9D-NM-Qoq">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100.0" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Q9D-NM-Qoq">
                                             <rect key="frame" x="330" y="7" width="64" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -794,7 +808,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJF-hK-MTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1109" y="968"/>
+            <point key="canvasLocation" x="1105" y="967.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xyv-ME-vFZ">

@@ -42,6 +42,8 @@ class NearbyViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("venuesCell", forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel?.text = venueList[indexPath.row]["name"] as? String
+        var location = venueList[indexPath.row]["location"] as NSDictionary
+        cell.detailTextLabel?.text = location["address"] as? String
         
         return cell
     }

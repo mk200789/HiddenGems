@@ -84,9 +84,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         centerPoint = CLLocationCoordinate2D(latitude: myLocation!.coordinate.latitude, longitude: myLocation!.coordinate.longitude)
         
-        let regionDistance:CLLocationDistance = 3300
+        //let regionDistance:CLLocationDistance = 3300
         
-        let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        //let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
+        
+        let region = MKCoordinateRegion(center: centerPoint, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         self.mapView.setRegion(region, animated: true)
         
@@ -97,18 +99,29 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             yloc = myLocation!.coordinate.longitude
             update()
             print("calling update()")
+
         }
         
     }
     
+    
     func update(){
-        //venues search using userless access
+        //Using foursquare api: "search" - venues search using userless access
         
-        let p1 : NSString = "https://api.foursquare.com/v2/venues/search?ll="+toString(xloc)+","+toString(yloc) as NSString
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyymmdd"
+        let date : String = dateFormatter.stringFromDate(NSDate())
         
-        let p2 : NSString = "&client_id="+fqClient_id+"&client_secret="+fqClient_secret+"&v=20160331" as NSString
+        let baseURL : NSString = "https://api.foursquare.com/v2/venues/search?ll="+toString(xloc)+","+toString(yloc) as NSString
         
-        let venues : NSString = p1 + p2 as NSString
+        let creds : NSString = "&client_id="+fqClient_id+"&client_secret="+fqClient_secret+"&v="+date as NSString
+        
+        let radius : NSString = "&radius="+toString(radiusText.text)+"&intent=browse" as NSString
+        
+        let venues : NSString = baseURL + creds + radius as NSString
+        
+        print(venues)
+        
         //venues url
         let venuesURL = NSURL(string: venues)
         
@@ -137,6 +150,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             venueList = data["venues"] as [NSDictionary]
                             print("hello")
+                            self.pinUpdates()
                         })
                         
                     }
@@ -144,6 +158,25 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 }
             }
             session.resume()
+        }
+    }
+    
+    func pinUpdates(){
+        
+        for venue in venueList{
+            var location = venue["location"] as NSDictionary
+            
+            var lat : CLLocationDegrees = location["lat"] as CLLocationDegrees
+            var lng : CLLocationDegrees = location["lng"] as CLLocationDegrees
+            
+            var newCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lng)
+            
+            var annotation = MKPointAnnotation()
+            annotation.coordinate = newCoordinate
+            annotation.title = venue["name"] as String
+            //print(venue["name"])
+            mapView.addAnnotation(annotation)
+            
         }
     }
     
@@ -165,9 +198,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //radiusText.text = String(slider)
         radiusText.text = toString(slider)
         
+        mapView.showsUserLocation = false
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.showsUserLocation = true
+        
+        update()
+        
         mapView.removeOverlays(mapView.overlays)
         
+        //note: cllocationdistance is in meters
         mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: CLLocationDistance(Double(slider))))
+        //mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: CLLocationDistance(1.0)))
+
+        
         
     }
     
@@ -206,4 +249,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     */
     
+}
+
+
+class CustomPointAnnotation : MKPointAnnotation {
+    var imageName : String = "marker_purple.png" as String
 }
