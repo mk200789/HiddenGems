@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         let results = context.executeFetchRequest(request, error:nil)
         
         if results?.count > 0 {
+            //if there is a user in db change view to explore 
             self.performSegueWithIdentifier("LoginToExplore", sender: nil)
         }
     }

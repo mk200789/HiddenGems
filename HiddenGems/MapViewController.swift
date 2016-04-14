@@ -15,8 +15,12 @@ var xloc : CLLocationDegrees!
 var yloc : CLLocationDegrees!
 
 var venueList : [NSDictionary]!
+//var exploreVenueList : NSDictionary!
+var exploreVenueList : NSArray!
 
 var imageCache = [String: NSData]()
+var exploreImageCache = [String: NSData]()
+
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -25,7 +29,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     //@IBOutlet weak var findEvents: UIButton!
     
-
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -42,8 +45,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var circleOverlay = MKCircle()
     
     var circleRenderer = MKCircleRenderer()
-    
-    
     
     
     override func viewDidLoad() {
@@ -66,6 +67,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         self.radiusText.enabled = false
         
         //self.findEvents.layer.cornerRadius = 10
+
+        if(exploreVenueList != nil){
+            pinExploreVenuesList()
+        }
         
 
         //Remove keyboard on touch
@@ -101,15 +106,77 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if(xloc != myLocation!.coordinate.latitude || xloc == nil){
             xloc = myLocation!.coordinate.latitude
             yloc = myLocation!.coordinate.longitude
-            update()
-            //print("calling update()")
+            //search()
+            print("calling explore()")
+            explore()
 
         }
         
     }
     
     
-    func update(){
+    func explore(){
+        //Using foursquare api: "explore"
+        
+        //Setup for formatting date to use in foursquare api
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyymmdd"
+        
+        //format todays date to yymmdd format
+        let date : String = dateFormatter.stringFromDate(NSDate())
+        
+        let baseURL : NSString = "https://api.foursquare.com/v2/venues/explore?ll="+toString(xloc)+","+toString(yloc) as NSString
+        
+        let creds : NSString = "&client_id="+fqClient_id+"&client_secret="+fqClient_secret+"&v="+date as NSString
+        
+        let radius : NSString = "&radius="+toString(radiusText.text)+"&limit=50" as NSString
+        
+        let venues : NSString = baseURL + creds + radius as NSString
+        
+        //venues url
+        let venuesURL = NSURL(string: venues)
+        
+        if let url = venuesURL {
+            
+            //create session
+            let session = NSURLSession.sharedSession().dataTaskWithURL(url){ (data, response, error) -> Void in
+                let status_code = (response as NSHTTPURLResponse).statusCode
+                
+                if status_code == 200{
+                    //check for content
+                    if let urlContent = data{
+                        
+                        //convert to json
+                        let jsondata = NSData(data: urlContent)
+                        
+                        let content = NSJSONSerialization.JSONObjectWithData(jsondata, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                        
+                        let response = content["response"] as NSDictionary
+                        
+                        let groups = response["groups"] as NSArray
+                        
+                        let items = groups[0] as NSDictionary
+                        
+                        let venues = items["items"] as NSArray
+                        
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            exploreVenueList = venues
+                            exploreImageCache = [String: NSData]()
+                            self.pinExploreVenuesList()
+                            
+                       })
+                        
+                        
+                    }
+                    
+                }
+            }
+            session.resume()
+            
+        }
+    }
+    
+    func search(){
         //Using foursquare api: "search" - venues search using userless access
         
         //Setup for formatting date to use in foursquare api
@@ -155,7 +222,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             venueList = data["venues"] as [NSDictionary]
                             imageCache = [String: NSData]()
-                            self.pinUpdates()
+                            self.pinSearchVenuesList()
                         })
                         
                     }
@@ -167,8 +234,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
-    
-    func pinUpdates(){
+    func pinSearchVenuesList(){
         
         //remove all annotations
         mapView.removeAnnotations(mapView.annotations)
@@ -222,7 +288,58 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
+    func pinExploreVenuesList(){
+        
+        //remove all annotations
+        mapView.removeAnnotations(mapView.annotations)
+        
+        if exploreVenueList != nil{
+            for venue in exploreVenueList{
+                var location = (venue["venue"] as NSDictionary)["location"] as NSDictionary
+                
+                var name = (venue["venue"] as NSDictionary)["name"] as String
+                
+                
+                
+                var category = ((venue["venue"] as NSDictionary)["categories"] as NSArray)[0] as NSDictionary
+                var prefix = (category["icon"] as NSDictionary)["prefix"] as NSString
+                var suffix = (category["icon"] as NSDictionary)["suffix"] as NSString
+                var url = NSURL(string: prefix+"bg_512"+suffix)!
+                var id = (venue["venue"] as NSDictionary)["id"] as NSString
+                
+                let session = NSURLSession.sharedSession().dataTaskWithURL(url){ (data, response, error) -> Void in
+                    //if error == nil{
+                    if (data != nil) {
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            exploreImageCache[id] = data as NSData
+                        })
+                    }
+                }
+                session.resume()
+                
+                
+                //get lattitude longitude
+                var lat : CLLocationDegrees = location["lat"] as CLLocationDegrees
+                var lng : CLLocationDegrees = location["lng"] as CLLocationDegrees
+                
+                //convert coordinate to CLLocationCoordinate2D type
+                var newCoordinate : CLLocationCoordinate2D = CLLocationCoordinate2DMake(lat, lng)
+                
+                //create new annotation for each venue
+                var annotation = MKPointAnnotation()
+                //var annotation = CustomPointAnnotation(pinColor: UIColor.purpleColor())
+                annotation.coordinate = newCoordinate
+                
+                annotation.title = name
+                
+                //add annotation to the map
+                mapView.addAnnotation(annotation)
+                
+            }
+        }
+    }
     
+
     
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
@@ -242,8 +359,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //radiusText.text = String(slider)
         radiusText.text = toString(slider)
         
-        //update()call whenever radius is adjust
-        update()
+        //update() or explore() call whenever radius is adjust
+        //search()
+        explore()
         
         mapView.removeOverlays(mapView.overlays)
         

@@ -9,7 +9,8 @@
 import UIKit
 
 class NearbyViewController: UITableViewController {
-    let totalRows : Int = venueList.count as Int
+    //let totalRows : Int = venueList.count as Int
+    let totalRows : Int = exploreVenueList.count as Int
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class NearbyViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("venuesCell", forIndexPath: indexPath) as UITableViewCell
-        
+        /*
         cell.textLabel?.text = venueList[indexPath.row]["name"] as? String
         var location = venueList[indexPath.row]["location"] as NSDictionary
         cell.detailTextLabel?.text = location["address"] as? String
@@ -48,6 +49,15 @@ class NearbyViewController: UITableViewController {
         //cell.imageView?.image = UIImage(named: "marker_red.png")
         //var data = imageCache[indexPath.row][
         cell.imageView?.image = UIImage(data: imageCache[id]!)
+        */
+        
+        cell.textLabel?.text = (exploreVenueList[indexPath.row]["venue"] as NSDictionary)["name"] as? String
+        var location = (exploreVenueList[indexPath.row]["venue"] as NSDictionary)["location"] as NSDictionary
+        cell.detailTextLabel?.text = location["address"] as? String
+        var id = (exploreVenueList[indexPath.row]["venue"] as NSDictionary)["id"] as String
+        //cell.imageView?.image = UIImage(named: "marker_red.png")
+        //var data = imageCache[indexPath.row][
+        cell.imageView?.image = UIImage(data: exploreImageCache[id]!)
         
         return cell
     }
