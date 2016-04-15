@@ -501,51 +501,21 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cocktail Filled-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="YbH-CH-GVn">
                                         <rect key="frame" x="33" y="128" width="35" height="35"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wild life" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4r-V3-vZT">
-                                        <rect key="frame" x="76" y="187" width="109" height="23"/>
-                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="1" height="1"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NMK-6V-9lX">
-                                        <rect key="frame" x="258" y="183" width="51" height="31"/>
-                                        <color key="tintColor" red="0.47450980390000003" green="0.72156862749999995" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="onTintColor" red="0.47450980390000003" green="0.72156862749999995" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </switch>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bear Footprint Filled-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="yG0-Q1-aO3">
-                                        <rect key="frame" x="33" y="181" width="35" height="35"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQS-k2-Qxn">
-                                        <rect key="frame" x="76" y="238" width="97" height="23"/>
+                                        <rect key="frame" x="76" y="197" width="97" height="23"/>
                                         <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N2Z-OM-TTX">
-                                        <rect key="frame" x="258" y="234" width="51" height="31"/>
+                                        <rect key="frame" x="258" y="193" width="51" height="31"/>
                                         <color key="tintColor" red="0.47450980390000003" green="0.72156862749999995" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="onTintColor" red="0.47450980390000003" green="0.72156862749999995" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </switch>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Deciduous Tree Filled-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="dCh-cp-F2j">
-                                        <rect key="frame" x="33" y="232" width="35" height="35"/>
+                                        <rect key="frame" x="33" y="191" width="35" height="35"/>
                                     </imageView>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ka2-sJ-qUN">
-                                        <rect key="frame" x="258" y="283" width="51" height="31"/>
-                                        <color key="tintColor" red="0.47450980390000003" green="0.72156862749999995" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="onTintColor" red="0.47450980390000003" green="0.72156862749999995" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </switch>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Kitesurfing Filled-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="HIO-Vg-cyf">
-                                        <rect key="frame" x="33" y="281" width="35" height="35"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHn-MU-4Gx">
-                                        <rect key="frame" x="76" y="287" width="73" height="23"/>
-                                        <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="20"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <size key="shadowOffset" width="1" height="1"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.5450980392" green="0.86274509799999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -920,10 +890,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Bear Footprint Filled-50.png" width="50" height="50"/>
         <image name="Cocktail Filled-50.png" width="50" height="50"/>
         <image name="Deciduous Tree Filled-50.png" width="50" height="50"/>
-        <image name="Kitesurfing Filled-50.png" width="50" height="50"/>
         <image name="Museum Filled-50.png" width="50" height="50"/>
         <image name="Restaurant Filled-50.png" width="50" height="50"/>
         <image name="face.png" width="99" height="97"/>
