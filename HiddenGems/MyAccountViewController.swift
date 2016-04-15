@@ -33,6 +33,11 @@ class MyAccountViewController: UIViewController {
     }
     
     
+    @IBAction func update(sender: AnyObject) {
+        
+        print("Completed Updates!")
+        self.performSegueWithIdentifier("toExplore", sender: nil)
+    }
     
 
     /*

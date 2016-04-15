@@ -21,6 +21,11 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var registerBox: UIView!
     
+    @IBOutlet weak var phone: UITextField!
+    
+    @IBOutlet weak var countryCode: UITextField!
+    
+    @IBOutlet weak var checkpp: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +52,9 @@ class RegisterViewController: UIViewController {
         self.username.text = ""
         self.password.text = ""
         self.email.text = ""
+        self.phone.text = ""
+        self.countryCode.text = ""
+        self.checkpp.text = ""
         
     }
     
@@ -55,7 +63,7 @@ class RegisterViewController: UIViewController {
         
         if let url = attemptUrl{
             //prepare data for post request
-            let postParams = ["username": self.username.text, "password": self.password.text, "email": self.email.text] as Dictionary<String, String>
+            let postParams = ["username": self.username.text, "password": self.password.text, "email": self.email.text, "country_code" : self.countryCode.text, "phone_number" : self.phone.text] as Dictionary<String, String>
             
             //create a request instance
             let request = NSMutableURLRequest(URL: url)
@@ -71,9 +79,24 @@ class RegisterViewController: UIViewController {
                 
                 if status_code == 200{
                     print("New user created!")
+                    self.performSegueWithIdentifier("goToLogin", sender: nil)
                 }
                 else{
                     print("ERROR")
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        let alert = UIAlertController(title: "User Exist", message: "Please choose another username.", preferredStyle: .Alert)
+                        
+                        let agree = UIAlertAction(title: "OK", style: .Default, handler: { (action:UIAlertAction!) -> Void in
+                        })
+                        
+                        alert.addAction(agree)
+                        self.presentViewController(alert, animated: true, completion: nil)
+                        
+                    })
+                
+
                 }
             })
             session.resume()
