@@ -21,9 +21,9 @@ extension UIViewController {
     }
 }
 
+var logged_user: String!
+
 class ViewController: UIViewController {
-    
-    
     
     @IBOutlet weak var CreateAccount: UIButton!
     
@@ -56,6 +56,9 @@ class ViewController: UIViewController {
         if results?.count > 0 {
             //if there is a user in db change view to explore 
             self.performSegueWithIdentifier("LoginToExplore", sender: nil)
+            for result in results as [NSManagedObject]{
+                logged_user = result.valueForKey("username") as String
+            }
         }
     }
 
@@ -134,6 +137,7 @@ class ViewController: UIViewController {
                                 user.setValue(jsondata["email"], forKey: "email")
                                 //5. save to db
                                 context.save(nil)
+                                logged_user = jsondata["username"] as String
 
                             }
                             if results?.count > 0 {

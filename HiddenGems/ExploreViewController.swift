@@ -11,6 +11,8 @@ import CoreData
 
 class ExploreViewController: UIViewController {
     
+    @IBOutlet var welcomeLabel: UILabel!
+    
     @IBOutlet weak var myAccount: UIButton!
     
     @IBOutlet weak var logout: UIButton!
@@ -20,6 +22,8 @@ class ExploreViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
         backgroundImage.image = UIImage(named: "background1.png")
         self.view.insertSubview(backgroundImage, atIndex: 0)
+        welcomeLabel.text = "Welcome \(logged_user)"
+        print(logged_user)
         
         //Remove keyboard on touch
         self.hideKeyboardWhenTappedAround()
