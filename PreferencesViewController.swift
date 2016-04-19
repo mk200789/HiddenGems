@@ -11,10 +11,12 @@ import UIKit
 class PreferencesViewController: UIViewController {
     
     
-    
     @IBOutlet weak var categoriesBox: UIView!
-    
 
+    @IBAction func preferenceToggle(sender: UISwitch) {
+        print(sender.tag)
+        print(sender.on)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

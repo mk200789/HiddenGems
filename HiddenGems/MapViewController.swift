@@ -406,7 +406,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     */
     
-  /*
+  
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
         let annotationView = MKPinAnnotationView()
@@ -433,7 +433,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         return annotationView
     }
-*/
+
 }
 
 

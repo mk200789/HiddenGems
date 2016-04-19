@@ -6,11 +6,12 @@
     </entity>
     <entity name="USER" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="USER" positionX="-27" positionY="18" width="128" height="30"/>
         <element name="PREFERENCES" positionX="-27" positionY="9" width="128" height="75"/>
+        <element name="USER" positionX="-27" positionY="18" width="128" height="105"/>
     </elements>
 </model>

@@ -135,7 +135,9 @@ class ViewController: UIViewController {
                                 user.setValue(jsondata["password"], forKey: "password")
                                 //4. set value for email
                                 user.setValue(jsondata["email"], forKey: "email")
-                                //5. save to db
+                                //5. set value for user_id
+                                user.setValue(jsondata["user_id"], forKey: "id")
+                                //6. save to db
                                 context.save(nil)
                                 logged_user = jsondata["username"] as String
 
