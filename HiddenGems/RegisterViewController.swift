@@ -79,7 +79,9 @@ class RegisterViewController: UIViewController {
                 
                 if status_code == 200{
                     print("New user created!")
-                    self.performSegueWithIdentifier("goToLogin", sender: nil)
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.performSegueWithIdentifier("goToLogin", sender: nil)
+                    })
                 }
                 else{
                     print("ERROR")

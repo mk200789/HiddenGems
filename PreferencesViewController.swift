@@ -174,19 +174,23 @@ class PreferencesViewController: UIViewController {
         super.viewDidLoad()
         
         categoriesBox.layer.cornerRadius = 10
-        
+
         for tag in toggleTags{
-            for pref in preferenceList{
-                var prefId = pref["pref_id"] as Int
-                if tag.tag == prefId {
-                    tag.on = true
-                    break
-                }
-                else{
+            if (preferenceList.count > 0) {
+                for pref in preferenceList{
+                    var prefId = pref["pref_id"] as Int
+                    if tag.tag == prefId {
+                        tag.on = true
+                        break
+                    }
                     tag.on = false
                 }
             }
+            else{
+                tag.on = false
+            }
         }
+        
         
         //Remove keyboard on touch
         self.hideKeyboardWhenTappedAround()

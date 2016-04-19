@@ -14,11 +14,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9t-8x-c2T">
-                                <rect key="frame" x="32" y="405" width="350" height="257"/>
+                                <rect key="frame" x="32" y="269" width="350" height="257"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pIH-j8-fH4">
                                         <rect key="frame" x="8" y="64" width="334" height="30"/>
@@ -142,11 +142,11 @@
                         <viewControllerLayoutGuide type="bottom" id="82Y-OJ-fiR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="px8-cY-mvg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-Lm-f2x">
-                                <rect key="frame" x="37" y="162" width="341" height="378"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-Lm-f2x">
+                                <rect key="frame" x="130" y="162" width="341" height="378"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9b0-Qp-d8a">
                                         <rect key="frame" x="33" y="134" width="274" height="30"/>
@@ -265,12 +265,12 @@
                         <outlet property="registerBox" destination="GcP-Lm-f2x" id="8O2-S0-aK7"/>
                         <outlet property="repeatPassword" destination="9b0-Qp-d8a" id="KIX-Eo-j6H"/>
                         <outlet property="username" destination="O5v-fX-mLp" id="LN7-6p-bUh"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToLogin" id="eO5-1r-OGv"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToLogin" id="4av-8O-kui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1u-We-5Ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="105"/>
+            <point key="canvasLocation" x="1490" y="105"/>
         </scene>
         <!--Explore-->
         <scene sceneID="z5M-MD-03M">
@@ -886,7 +886,7 @@
                         <viewControllerLayoutGuide type="bottom" id="S3o-66-qbi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dc4-Px-ab5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4i-DL-zwM">
@@ -935,6 +935,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xV5-vG-rPW"/>
-        <segue reference="1hd-ei-obm"/>
+        <segue reference="4av-8O-kui"/>
     </inferredMetricsTieBreakers>
 </document>
