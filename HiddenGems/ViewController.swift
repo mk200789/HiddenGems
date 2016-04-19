@@ -22,6 +22,7 @@ extension UIViewController {
 }
 
 var logged_user: String!
+var logged_user_id: Int!
 
 class ViewController: UIViewController {
     
@@ -58,6 +59,7 @@ class ViewController: UIViewController {
             self.performSegueWithIdentifier("LoginToExplore", sender: nil)
             for result in results as [NSManagedObject]{
                 logged_user = result.valueForKey("username") as String
+                logged_user_id = result.valueForKey("id") as Int
             }
         }
     }
@@ -140,8 +142,10 @@ class ViewController: UIViewController {
                                 //6. save to db
                                 context.save(nil)
                                 logged_user = jsondata["username"] as String
-
+                                logged_user_id = jsondata["user_id"] as Int
+                                print(logged_user_id)
                             }
+                            
                             if results?.count > 0 {
                                 print("there is results!: \n")
                                 for result in results as [NSManagedObject]{

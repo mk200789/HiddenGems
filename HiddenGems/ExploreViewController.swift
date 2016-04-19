@@ -22,12 +22,115 @@ class ExploreViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
         backgroundImage.image = UIImage(named: "background1.png")
         self.view.insertSubview(backgroundImage, atIndex: 0)
-        welcomeLabel.text = "Welcome \(logged_user)"
+        welcomeLabel.text = "Welcome \(logged_user) id \(logged_user_id)"
         print(logged_user)
         
         //Remove keyboard on touch
         self.hideKeyboardWhenTappedAround()
-    
+        
+        //retrieving user's preferences
+        let attemptUrl = NSURL(string:"http://54.152.30.2/hg/getPreferences")
+        
+        if let url = attemptUrl{
+            //prepare data for post request
+            let postParams = ["user_id": toString(logged_user_id)] as Dictionary<String,String>
+            //create a request instance
+            let request = NSMutableURLRequest(URL: url)
+            //set to post method
+            request.HTTPMethod = "POST"
+            request.setValue("application/json; charset=utf8", forHTTPHeaderField: "Content-Type")
+            request.HTTPBody = NSJSONSerialization.dataWithJSONObject(postParams, options: NSJSONWritingOptions(), error: nil)
+            
+            //create session
+            let session = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                let status_code = (response as NSHTTPURLResponse).statusCode
+                
+                if status_code == 200{
+                    
+                    //force queue to come to a close so when can perfom the segue
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        //save json data in local storage
+                        
+                        //refers to AppDelegate
+                        let appDel: AppDelegate =  UIApplication.sharedApplication().delegate as AppDelegate
+                        
+                        //allows to access coredata database
+                        let context: NSManagedObjectContext = appDel.managedObjectContext!
+                        
+                        let request = NSFetchRequest(entityName: "PREFERENCES")
+                        let results = context.executeFetchRequest(request, error:nil)
+                        
+                        let jsondata = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
+                        
+                        if results?.count == 0{
+                            //no preferences in db. let's start adding!
+                            
+                            print("\n")
+                            print("There's no preference set in db!")
+                            print("\n")
+                            for pref in jsondata{
+                                //1.specify which entity your going to use
+                                let preference = NSEntityDescription.insertNewObjectForEntityForName("PREFERENCES", inManagedObjectContext: context) as NSManagedObject
+                                //2. set preference name, preference id, and user id
+                                preference.setValue(pref["place_name"], forKey: "preference_name")
+                                preference.setValue(pref["pref_id"], forKey: "preference_id")
+                                preference.setValue(pref["user_id"], forKey: "id")
+                                //3. save preference
+                                context.save(nil)
+                                print(pref["place_name"])
+                                print(pref["pref_id"])
+                                print("\n\n")
+                            }
+                            
+                        }
+                        
+                        if results?.count > 0 {
+                            print("\n")
+                            print("There's preference saved in db!")
+                            print("\n")
+                            for result in results as [NSManagedObject] {
+                                print(result.valueForKey("preference_name"))
+                            }
+                        }
+
+
+                        
+                        
+                        /*
+                        //save json data in local storage
+                        
+                        //refers to AppDelegate
+                        let appDel: AppDelegate =  UIApplication.sharedApplication().delegate as AppDelegate
+                        
+                        //allows to access coredata database
+                        let context: NSManagedObjectContext = appDel.managedObjectContext!
+                        
+                        let request = NSFetchRequest(entityName: "PREFERENCES")
+                        let results = context.executeFetchRequest(request, error:nil)
+                        
+                        if results?.count == 0{
+                        //no preferences in db. let's start adding!
+                        //1.specify which entity your going to use
+                        let preference = NSEntityDescription.insertNewObjectForEntityForName("PREFERENCES", inManagedObjectContext: context) as NSManagedObject
+                        //2. set value for preferences
+                        
+                        
+                        }
+                        */
+                    })
+                    
+                    
+                    
+                    
+                    
+                }
+            })
+            session.resume()
+            
+        }
+        
+        
 
     }
 
