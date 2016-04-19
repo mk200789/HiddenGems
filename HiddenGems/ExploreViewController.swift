@@ -33,6 +33,7 @@ class ExploreViewController: UIViewController {
         //retrieving user's preferences
         let attemptUrl = NSURL(string:"http://54.152.30.2/hg/getPreferences")
         
+        
         if let url = attemptUrl{
             //prepare data for post request
             let postParams = ["user_id": toString(logged_user_id)] as Dictionary<String,String>
@@ -110,6 +111,8 @@ class ExploreViewController: UIViewController {
 
                             preferenceList = temp
                         }
+                        
+                        tempSize = preferenceList.count
 
                     })
                     
@@ -122,6 +125,8 @@ class ExploreViewController: UIViewController {
             session.resume()
             
         }
+        
+
         
         
 
