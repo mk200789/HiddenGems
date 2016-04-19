@@ -16,10 +16,14 @@ var yloc : CLLocationDegrees!
 
 var venueList : [NSDictionary]!
 //var exploreVenueList : NSDictionary!
-var exploreVenueList : NSArray!
+//var exploreVenueList : NSArray!
+var exploreVenueList : NSMutableArray! //= []
 
 var imageCache = [String: NSData]()
 var exploreImageCache = [String: NSData]()
+
+var radius : Double!
+var centerPoint : CLLocationCoordinate2D!
 
 
 class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -40,7 +44,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     //Swift 2:
     //var centerPoint = CLLocationCoordinate2D()
-    var centerPoint : CLLocationCoordinate2D!
+    //var centerPoint : CLLocationCoordinate2D!
     
     var circleOverlay = MKCircle()
     
@@ -70,6 +74,15 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
         if(exploreVenueList != nil){
             pinExploreVenuesList()
+        }
+        
+        if radius != nil && centerPoint != nil {
+            radiusText.text = toString(radius)
+            radiusSlider.value = Float(radius)
+            //mapView.removeOverlays(mapView.overlays)
+            
+            //note: cllocationdistance is in meters
+            mapView.addOverlay(MKCircle(centerCoordinate: centerPoint, radius: CLLocationDistance(Double(radius))))
         }
         
 
@@ -131,49 +144,85 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         let radius : NSString = "&radius="+toString(radiusText.text)+"&limit=50" as NSString
         
-        let venues : NSString = baseURL + creds + radius as NSString
+        exploreImageCache = [String: NSData]()
         
-        //venues url
-        let venuesURL = NSURL(string: venues)
+        var first = true
         
-        if let url = venuesURL {
+        var t = 0
+
+        for pref in preferenceList{
+            let pref = pref["place_name"] as String
+            let section : NSString = "&section=" + toString(pref) as NSString
+            let venues : NSString = baseURL + creds + radius + section as NSString
             
-            //create session
-            let session = NSURLSession.sharedSession().dataTaskWithURL(url){ (data, response, error) -> Void in
-                let status_code = (response as NSHTTPURLResponse).statusCode
+            print(venues)
+            
+            //venues url
+            let venuesURL = NSURL(string: venues)
+            
+            if let url = venuesURL {
                 
-                if status_code == 200{
-                    //check for content
-                    if let urlContent = data{
-                        
-                        //convert to json
-                        let jsondata = NSData(data: urlContent)
-                        
-                        let content = NSJSONSerialization.JSONObjectWithData(jsondata, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
-                        
-                        let response = content["response"] as NSDictionary
-                        
-                        let groups = response["groups"] as NSArray
-                        
-                        let items = groups[0] as NSDictionary
-                        
-                        let venues = items["items"] as NSArray
-                        
-                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            exploreVenueList = venues
-                            exploreImageCache = [String: NSData]()
-                            self.pinExploreVenuesList()
+                //create session
+                let session = NSURLSession.sharedSession().dataTaskWithURL(url){ (data, response, error) -> Void in
+                    let status_code = (response as NSHTTPURLResponse).statusCode
+                    
+                    if status_code == 200{
+                        //check for content
+                        if let urlContent = data{
                             
-                       })
-                        
+                            //convert to json
+                            let jsondata = NSData(data: urlContent)
+                            
+                            let content = NSJSONSerialization.JSONObjectWithData(jsondata, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
+                            
+                            let response = content["response"] as NSDictionary
+                            
+                            let groups = response["groups"] as NSArray
+                            
+                            let items = groups[0] as NSDictionary
+                            
+                            //let venues = items["items"] as NSArray
+                            let venues = items["items"] as NSMutableArray
+                            
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                //print(venues)
+                                print("\n\n")
+                                if first {
+                                    //exploreVenueList.addObject(venues)
+                                    exploreVenueList = venues as NSMutableArray
+                                    first = false
+                                }
+                                else{
+                                    for i in venues{
+                                        exploreVenueList.addObject(i)
+                                    }
+                                }
+                                print(t)
+                                if t == preferenceList.count {
+                                    self.pinExploreVenuesList()
+                                }
+                                //exploreImageCache = [String: NSData]()
+                                //self.pinExploreVenuesList()
+                                
+                            })
+                            
+                            t += 1
+                            
+                            
+                        }
                         
                     }
                     
                 }
+                session.resume()
+                
+                
             }
-            session.resume()
+            
             
         }
+        
+
     }
     
     func search(){
@@ -292,14 +341,19 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         //remove all annotations
         mapView.removeAnnotations(mapView.annotations)
+
+        //print("Start \n\n")
+
         
-        if exploreVenueList != nil{
+        if exploreVenueList != nil {
+            
             for venue in exploreVenueList{
+                //print(venue)
+                //print("\n\n\n\n\n")
+                
                 var location = (venue["venue"] as NSDictionary)["location"] as NSDictionary
                 
                 var name = (venue["venue"] as NSDictionary)["name"] as String
-                
-                
                 
                 var category = ((venue["venue"] as NSDictionary)["categories"] as NSArray)[0] as NSDictionary
                 var prefix = (category["icon"] as NSDictionary)["prefix"] as NSString
@@ -335,8 +389,12 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 //add annotation to the map
                 mapView.addAnnotation(annotation)
                 
+                
+                
             }
+            
         }
+
     }
     
 
@@ -358,6 +416,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         //Swift 2:
         //radiusText.text = String(slider)
         radiusText.text = toString(slider)
+        
+        radius = Double(slider)
         
         //update() or explore() call whenever radius is adjust
         //search()
@@ -406,6 +466,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     }
     */
     
+    
+    /*
   
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -433,6 +495,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         return annotationView
     }
+    */
 
 }
 

@@ -25,6 +25,7 @@ class PreferencesViewController: UIViewController {
         
         for preference in preferenceList{
             var prefId = preference["pref_id"] as Int
+            
             if sender.tag == prefId {
                 //removing preference
                 
@@ -55,32 +56,26 @@ class PreferencesViewController: UIViewController {
                                 let context: NSManagedObjectContext = appDel.managedObjectContext!
                                 
                                 let request = NSFetchRequest(entityName: "PREFERENCES")
-                                let results = context.executeFetchRequest(request, error:nil)
                                 
                                 let jsondata = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
                                 
+                                //update preference list
                                 preferenceList = jsondata as NSArray
                                 
-                                if results?.count == 0{
-                                    //no preferences in db. let's start adding!
-                                    
-                                    //1.specify which entity your going to use
-                                    let preference = NSEntityDescription.insertNewObjectForEntityForName("PREFERENCES", inManagedObjectContext: context) as NSManagedObject
-                                    
-                                    //add a predicate to search for pref_id
-                                    request.predicate = NSPredicate(format: "preference_id = %@" , sender.tag)
-                                    
-                                    let results = context.executeFetchRequest(request, error:nil)
-                                    
-                                    if results?.count > 0{
-                                        for result in results as [NSManagedObject]{
-                                            print(result)
-                                            context.deleteObject(result)
-                                            context.save(nil)
-                                        }
+                                //add a predicate to search for pref_id
+                                request.predicate = NSPredicate(format: "preference_id == \(sender.tag)")
+                                
+                                let results = context.executeFetchRequest(request, error:nil)
+                                
+                                if results?.count > 0{
+                                    for result in results as [NSManagedObject]{
+                                        print(result.valueForKey("preference_name"))
+                                        context.deleteObject(result)
+                                        context.save(nil)
                                     }
-                                    
                                 }
+                                
+                                
                             })
                         }
                     })
