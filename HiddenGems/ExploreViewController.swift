@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+var preferenceList: NSArray!
+
 class ExploreViewController: UIViewController {
     
     @IBOutlet var welcomeLabel: UILabel!
@@ -68,6 +70,7 @@ class ExploreViewController: UIViewController {
                             
                             print("\n")
                             print("There's no preference set in db!")
+                            print(data)
                             print("\n")
                             for pref in jsondata{
                                 //1.specify which entity your going to use
@@ -78,46 +81,36 @@ class ExploreViewController: UIViewController {
                                 preference.setValue(pref["user_id"], forKey: "id")
                                 //3. save preference
                                 context.save(nil)
-                                print(pref["place_name"])
-                                print(pref["pref_id"])
-                                print("\n\n")
+                                //print(pref["place_name"])
+                                //print(pref["pref_id"])
+                                //print("\n\n")
+                                
                             }
-                            
+                            preferenceList = jsondata as NSArray
+                            print(preferenceList)
+                            print("\n\n")
                         }
                         
                         if results?.count > 0 {
                             print("\n")
                             print("There's preference saved in db!")
                             print("\n")
+                            
+                            var temp = [AnyObject]()
+                            
                             for result in results as [NSManagedObject] {
-                                print(result.valueForKey("preference_name"))
+                                var val = [String : AnyObject]()
+                                val["user_id"] = result.valueForKey("id")
+                                val["pref_id"] = result.valueForKey("preference_id")
+                                val["place_name"] = result.valueForKey("preference_name")
+                                print(val)
+                                temp.append(val)
+                                print("\n\n")
                             }
+
+                            preferenceList = temp
                         }
 
-
-                        
-                        
-                        /*
-                        //save json data in local storage
-                        
-                        //refers to AppDelegate
-                        let appDel: AppDelegate =  UIApplication.sharedApplication().delegate as AppDelegate
-                        
-                        //allows to access coredata database
-                        let context: NSManagedObjectContext = appDel.managedObjectContext!
-                        
-                        let request = NSFetchRequest(entityName: "PREFERENCES")
-                        let results = context.executeFetchRequest(request, error:nil)
-                        
-                        if results?.count == 0{
-                        //no preferences in db. let's start adding!
-                        //1.specify which entity your going to use
-                        let preference = NSEntityDescription.insertNewObjectForEntityForName("PREFERENCES", inManagedObjectContext: context) as NSManagedObject
-                        //2. set value for preferences
-                        
-                        
-                        }
-                        */
                     })
                     
                     
@@ -159,6 +152,22 @@ class ExploreViewController: UIViewController {
         }
         else{
             print("no result to delete!")
+        }
+        
+        //create a request that allows us to get data from preference entity
+        let requestPref = NSFetchRequest(entityName: "PREFERENCES")
+        
+        let resultsPref = context.executeFetchRequest(requestPref, error: nil)
+        
+        print("\n")
+        if resultsPref?.count > 0{
+            for results in resultsPref as [NSManagedObject]{
+                var result = results.valueForKey("preference_name") as String
+                print("Deleting \(result)")
+                print("\n")
+                context.deleteObject(results)
+                context.save(nil)
+            }
         }
         
 

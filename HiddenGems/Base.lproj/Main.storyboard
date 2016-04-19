@@ -563,6 +563,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="categoriesBox" destination="v0k-mm-0Op" id="fws-vi-EUT"/>
+                        <outletCollection property="toggleTags" destination="ozw-z2-V28" collectionClass="NSMutableArray" id="mo5-Je-QZL"/>
+                        <outletCollection property="toggleTags" destination="uPc-Px-jU2" collectionClass="NSMutableArray" id="YSp-AM-cMQ"/>
+                        <outletCollection property="toggleTags" destination="b0a-1v-gGN" collectionClass="NSMutableArray" id="eVU-te-pgC"/>
+                        <outletCollection property="toggleTags" destination="N2Z-OM-TTX" collectionClass="NSMutableArray" id="ajM-Aw-3tZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxT-6t-zoF" userLabel="First Responder" sceneMemberID="firstResponder"/>
