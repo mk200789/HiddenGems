@@ -22,10 +22,14 @@ class ExploreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
-        backgroundImage.image = UIImage(named: "background1.png")
+        backgroundImage.image = UIImage(named: "HiddenGemsBackground.png")
         self.view.insertSubview(backgroundImage, atIndex: 0)
-        welcomeLabel.text = "Welcome \(logged_user) id \(logged_user_id)"
+        welcomeLabel.text = "Welcome \(logged_user)!"
         print(logged_user)
+        
+        //let g = (user_data as Dictionary)["phone_number"] as String
+        //print(g)
+        print(user_data)
         
         //Remove keyboard on touch
         self.hideKeyboardWhenTappedAround()
@@ -82,6 +86,7 @@ class ExploreViewController: UIViewController {
                                 preference.setValue(pref["user_id"], forKey: "id")
                                 //3. save preference
                                 context.save(nil)
+                                
                                 //print(pref["place_name"])
                                 //print(pref["pref_id"])
                                 //print("\n\n")

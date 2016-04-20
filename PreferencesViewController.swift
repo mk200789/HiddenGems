@@ -12,8 +12,6 @@ import CoreData
 class PreferencesViewController: UIViewController {
     
     @IBOutlet var toggleTags: [UISwitch]!
-    
-    @IBOutlet weak var categoriesBox: UIView!
 
     @IBAction func preferenceToggle(sender: UISwitch) {
 
@@ -173,8 +171,6 @@ class PreferencesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        categoriesBox.layer.cornerRadius = 10
-
         for tag in toggleTags{
             if (preferenceList.count > 0) {
                 for pref in preferenceList{
@@ -207,15 +203,5 @@ class PreferencesViewController: UIViewController {
         self.navigationController?.navigationBarHidden = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
